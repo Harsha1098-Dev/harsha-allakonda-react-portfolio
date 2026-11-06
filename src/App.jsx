@@ -1211,20 +1211,22 @@ export default function App() {
               })}
             </div>
 
-            {/* LinkedIn 29th Cert Sync Callout */}
-            <div className="bg-gradient-to-r from-sky-500/10 via-blue-500/10 to-indigo-500/10 backdrop-blur-xl border border-sky-200/80 rounded-2xl p-4 sm:p-5 flex items-start gap-3.5 text-slate-700 text-xs sm:text-sm">
-              <div className="w-8 h-8 rounded-xl bg-sky-500 text-white flex items-center justify-center shrink-0 mt-0.5 shadow-sm">
-                <Info className="w-4 h-4" />
+            {/* LinkedIn 29th Cert Sync Callout - High Contrast & Maximum Readability */}
+            <div className="bg-white/95 backdrop-blur-3xl border-2 border-sky-100 shadow-xl shadow-slate-900/5 rounded-3xl p-5 sm:p-6 flex items-start gap-4 transition-all">
+              <div className="w-10 h-10 rounded-2xl bg-gradient-to-br from-sky-500 to-blue-600 text-white flex items-center justify-center shrink-0 shadow-md shadow-sky-500/25 mt-0.5">
+                <Info className="w-5 h-5 stroke-[2.5]" />
               </div>
-              <div className="space-y-1">
-                <div className="font-bold text-slate-900 flex items-center gap-2">
-                  <span>28 Credentials Cataloged with Verified IDs</span>
-                  <span className="text-[10px] font-bold px-2 py-0.5 rounded bg-sky-100 text-sky-800 border border-sky-200">
+              <div className="space-y-1.5 flex-1">
+                <div className="flex flex-wrap items-center gap-2">
+                  <h4 className="text-base sm:text-lg font-black text-slate-900 tracking-tight">
+                    28 Credentials Cataloged with Verified IDs
+                  </h4>
+                  <span className="text-[11px] font-extrabold px-3 py-0.5 rounded-full bg-sky-100 text-sky-800 border border-sky-200">
                     LinkedIn Sync Status
                   </span>
                 </div>
-                <p className="text-slate-600 leading-relaxed">
-                  You currently have 28 certifications fully documented below with verified credential IDs. Since your LinkedIn profile displays 29 licenses & certifications, 1 additional certification is queued for verification synchronization.
+                <p className="text-sm text-slate-700 font-medium leading-relaxed">
+                  All <strong className="text-slate-900 font-bold">28 certifications</strong> listed below are fully documented with authentic credential IDs verified against issuer records. As your LinkedIn profile reflects <strong className="text-slate-900 font-bold">29 licenses & certifications</strong>, 1 remaining credential is queued for verification synchronization.
                 </p>
               </div>
             </div>
