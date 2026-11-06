@@ -558,7 +558,7 @@ export default function App() {
         <div className="bg-white/75 backdrop-blur-2xl border border-white/70 shadow-lg shadow-slate-900/5 rounded-2xl md:rounded-full px-5 py-3 flex items-center justify-between transition-all">
           <div
             onClick={() => navigateTo('overview')}
-            className="flex items-center space-x-3 cursor-pointer group"
+            className="flex items-center space-x-3 cursor-pointer group min-w-0"
           >
             <div className="h-10 w-20 rounded-xl overflow-hidden bg-[#0a1428] border border-amber-400/40 shadow-md shadow-slate-900/10 group-hover:scale-105 transition-transform flex items-center justify-center shrink-0">
               <img 
@@ -567,12 +567,17 @@ export default function App() {
                 className="w-full h-full object-cover object-center"
               />
             </div>
-            <div>
+            <div className="min-w-0">
               <div className="flex items-center gap-2">
-                <span className="font-extrabold text-slate-900 tracking-tight text-base sm:text-lg">Harsha Allakonda</span>
-                <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-sky-100 text-sky-800 border border-sky-200">PREPDHA</span>
+                <span className="font-extrabold text-slate-900 tracking-tight text-base sm:text-lg shrink-0">Harsha Allakonda</span>
+                <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-sky-100 text-sky-800 border border-sky-200 shrink-0">PREPDHA</span>
               </div>
-              <p className="text-[11px] text-slate-500 font-medium hidden sm:block">Human Resources Manager & HR Tech Specialist</p>
+              <p 
+                className="text-[11px] text-slate-500 font-medium hidden sm:block max-w-[260px] md:max-w-[380px] lg:max-w-[300px] xl:max-w-[480px] 2xl:max-w-[700px] truncate"
+                title="Human Resources Manager | HR Operations | Talent Acquisition | Payroll & Statutory Compliance | Employee Engagement | HRMS (Zoho People) | HR Management | Employee Compliance | Company and Employee Policies | Recruitment"
+              >
+                Human Resources Manager | HR Operations | Talent Acquisition | Payroll & Statutory Compliance | Employee Engagement | HRMS (Zoho People) | HR Management | Employee Compliance | Company and Employee Policies | Recruitment
+              </p>
             </div>
           </div>
 
