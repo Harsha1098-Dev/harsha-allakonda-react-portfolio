@@ -1,0 +1,19 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+  .text-gold {
+    color: #E5B83B;
+  }
+  .bg-navy {
+    background-color: #0B1849;
+  }
+  .bg-forest {
+    background-color: #134E28;
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
