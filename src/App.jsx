@@ -4,7 +4,7 @@ import {
   CheckCircle2, TrendingUp, Users, ShieldCheck, DollarSign,
   Sparkles, ChevronRight, ChevronLeft, BookOpen, Layers, Send,
   Play, Clock, Building, Check, ExternalLink, ArrowRight, Star,
-  Home, Phone
+  Home, Phone, Copy, Search, Filter, CheckCheck, Info
 } from 'lucide-react';
 
 const Linkedin = ({ className = "w-4 h-4" }) => (
@@ -28,6 +28,18 @@ export default function App() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
   const [submissionFeedback, setSubmissionFeedback] = useState('');
+  const [certProviderFilter, setCertProviderFilter] = useState('all');
+  const [certCategoryFilter, setCertCategoryFilter] = useState('all');
+  const [certSearch, setCertSearch] = useState('');
+  const [copiedId, setCopiedId] = useState(null);
+
+  const handleCopyId = (id) => {
+    if (typeof navigator !== 'undefined' && navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(id);
+    }
+    setCopiedId(id);
+    setTimeout(() => setCopiedId(null), 2000);
+  };
 
   // Handle client-side hash change for back/forward navigation
   useEffect(() => {
@@ -238,26 +250,253 @@ export default function App() {
     }
   ];
 
-  const skillDeckCerts = [
-    { title: "AI in HR", issuer: "SkillDeck Bangalore", issued: "Jul 2026", id: "SD 8792/JUL/WK-4275", category: "Featured" },
-    { title: "POSH Train The Trainer", issuer: "SkillDeck Bangalore", issued: "Aug 2026", id: "SD 9958/AUG/WK-4906", category: "Featured" },
-    { title: "Labour Code Webinar", issuer: "SkillDeck Bangalore", issued: "Jul 2026", id: "SD 4333/AUG/WK-5674", category: "Featured" }
+  const allCertifications = [
+    // --- SkillDeck Bangalore (Top Featured) ---
+    {
+      title: "AI in HR",
+      issuer: "SkillDeck Bangalore",
+      id: "SD 8792/JUL/WK-4275",
+      issued: "Jul 2026",
+      category: "AI for Business & HR",
+      featured: true,
+      desc: "Strategic implementation of generative AI in HR operations, workforce planning, resume evaluation, and HR analytics."
+    },
+    {
+      title: "POSH Train The Trainer",
+      issuer: "SkillDeck Bangalore",
+      id: "SD 9958/AUG/WK-4906",
+      issued: "Aug 2026",
+      category: "Foundational Credentials",
+      featured: true,
+      desc: "Comprehensive certification for leading Prevention of Sexual Harassment awareness, compliance governance, and ICC inquiries."
+    },
+    {
+      title: "Labour Code Webinar",
+      issuer: "SkillDeck Bangalore",
+      id: "SD 4333/AUG/WK-5674",
+      issued: "Jul 2026",
+      category: "Foundational Credentials",
+      featured: true,
+      desc: "In-depth statutory audit methodologies, Indian Labour Codes alignment, wage code regulations, and compliance frameworks."
+    },
+
+    // --- AI & Automation Expertise (Coursiv) ---
+    {
+      title: "Master of ChatGPT: Deep Dive",
+      issuer: "Coursiv",
+      id: "XJPJF4VF",
+      category: "AI & Automation Expertise",
+      desc: "Advanced prompt engineering, multi-turn conversational agents, and contextual productivity optimization."
+    },
+    {
+      title: "MASTER OF CLAUDE",
+      issuer: "Coursiv",
+      id: "UT2GT2UT",
+      category: "AI & Automation Expertise",
+      desc: "Deep reasoning, comprehensive document analysis, and executive synthesis using Anthropic Claude."
+    },
+    {
+      title: "MASTER OF CLAUDE: DEEP DIVE",
+      issuer: "Coursiv",
+      id: "DHECXPKP",
+      category: "AI & Automation Expertise",
+      desc: "Nuanced persona prompts, policy drafting, and high-complexity reasoning workflows."
+    },
+    {
+      title: "MASTER OF CLAUDE CODE",
+      issuer: "Coursiv",
+      id: "6VJZ6TXK",
+      category: "AI & Automation Expertise",
+      desc: "Agentic coding workflows, terminal automation, and modern full-stack development orchestration."
+    },
+    {
+      title: "MASTER OF GEMINI",
+      issuer: "Coursiv",
+      id: "4DFAYMLY",
+      category: "AI & Automation Expertise",
+      desc: "Multimodal AI execution, workspace integrations, real-time research, and structured data analysis."
+    },
+    {
+      title: "MASTER OF DEEPSEEK",
+      issuer: "Coursiv",
+      id: "XGNJNXPU",
+      category: "AI & Automation Expertise",
+      desc: "Open reasoning models, mathematical logic, code generation, and complex technical synthesis."
+    },
+    {
+      title: "MASTER OF MIDJOURNEY AI",
+      issuer: "Coursiv",
+      id: "7D4VMA2I",
+      category: "AI & Automation Expertise",
+      desc: "Creative visual prompt engineering, high-fidelity corporate assets, and visual concept generation."
+    },
+    {
+      title: "MASTER OF LOVABLE",
+      issuer: "Coursiv",
+      id: "WMG4YGZP",
+      category: "AI & Automation Expertise",
+      desc: "Full-stack application rapid prototyping, interactive UI building, and AI software engineering."
+    },
+    {
+      title: "MASTER OF JASPER AI",
+      issuer: "Coursiv",
+      id: "V5N6VI6F",
+      category: "AI & Automation Expertise",
+      desc: "Enterprise copywriting, brand voice standardization, campaign scaling, and executive communications."
+    },
+    {
+      title: "Master of Stable Diffusion",
+      issuer: "Coursiv",
+      id: "QXOTRPGG",
+      category: "AI & Automation Expertise",
+      desc: "Latent diffusion architectures, style tuning, parameter control, and open-source generative imaging."
+    },
+    {
+      title: "Master of CHATGPT",
+      issuer: "Coursiv",
+      id: "GIGZHGWP",
+      category: "AI & Automation Expertise",
+      desc: "Everyday productivity workflows, document summarization, and cognitive workflow automation."
+    },
+
+    // --- AI for Business & HR (Coursiv) ---
+    {
+      title: "AI for Business Operations",
+      issuer: "Coursiv",
+      id: "M6MTRAYC",
+      category: "AI for Business & HR",
+      desc: "Operational bottleneck resolution, process automation, and cross-functional workflow streamlining."
+    },
+    {
+      title: "AI for Accountants",
+      issuer: "Coursiv",
+      id: "4GMZQCDL",
+      category: "AI for Business & HR",
+      desc: "Automated ledger reconciliation, payroll data validation, and fiscal audit compliance with AI."
+    },
+    {
+      title: "AI MASTERY CERTIFICATE PROGRAM",
+      issuer: "Coursiv",
+      id: "BLYTWV4R",
+      category: "AI for Business & HR",
+      desc: "Comprehensive executive certification in enterprise generative AI toolkits and implementation roadmaps."
+    },
+    {
+      title: "Personalized AI Certificate Program",
+      issuer: "Coursiv",
+      id: "RVMX5YBI",
+      category: "AI for Business & HR",
+      desc: "Customized professional development track in AI integration for managerial decision-making."
+    },
+    {
+      title: "Build a Strong Portfolio with AI",
+      issuer: "Coursiv",
+      id: "PTOY67AC",
+      category: "AI for Business & HR",
+      desc: "Evidence-based credentialing, interactive portfolio architecture, and modern professional presentation."
+    },
+    {
+      title: "TURBOCHARGE YOUR PRODUCTIVITY WITH AI",
+      issuer: "Coursiv",
+      id: "U64IAAQA",
+      category: "AI for Business & HR",
+      desc: "High-leverage time management, executive briefing synthesis, and task automation frameworks."
+    },
+
+    // --- Marketing & Content (Coursiv) ---
+    {
+      title: "AI Copywriting",
+      issuer: "Coursiv",
+      id: "OS6QRRLZ",
+      category: "Marketing & Content",
+      desc: "High-impact employee engagement communications, employer branding content, and recruitment ads."
+    },
+    {
+      title: "AI in SMM",
+      issuer: "Coursiv",
+      id: "2KXQQNMM",
+      category: "Marketing & Content",
+      desc: "Social media management, LinkedIn talent sourcing branding campaigns, and community engagement."
+    },
+    {
+      title: "MASTER OF OMNI",
+      issuer: "Coursiv",
+      id: "4J6AHEWO",
+      category: "Marketing & Content",
+      desc: "Omnichannel content creation, brand positioning, and cross-platform executive messaging."
+    },
+
+    // --- Productivity & Finance (Coursiv) ---
+    {
+      title: "MASTER OF CLAUDE FOR EXCEL",
+      issuer: "Coursiv",
+      id: "P7CV22QD",
+      category: "Productivity & Finance",
+      desc: "Automated spreadsheet formulas, HR data reconciliation, compensation modeling, and pivot analytics."
+    },
+    {
+      title: "Managing Personal Finances With AI",
+      issuer: "Coursiv",
+      id: "RYI3JNMM",
+      category: "Productivity & Finance",
+      desc: "Automated budget structuring, fiscal forecasting, and financial risk mitigation using AI."
+    },
+    {
+      title: "CLAUDE-POWERED ACCOUNTING PROGRAM",
+      issuer: "Coursiv",
+      id: "ORBQKBOA",
+      category: "Productivity & Finance",
+      desc: "Payroll calculation verification, statutory tax deduction checks, and automated ledger balancing."
+    },
+
+    // --- Foundational & Technical Credentials (freeCodeCamp) ---
+    {
+      title: "JavaScript",
+      issuer: "freeCodeCamp",
+      id: "fcc-967f090c-eade-4e4b-a238-5d3f582c99e3-jsv9",
+      issued: "May 2026",
+      category: "Foundational Credentials",
+      desc: "Algorithms, object-oriented programming, DOM manipulation, and asynchronous ES6+ JavaScript."
+    },
+    {
+      title: "Responsive Web Design",
+      issuer: "freeCodeCamp",
+      id: "fcc-967f090c-eade-4e4b-a238-5d3f582c99e3-rwdv9",
+      issued: "Apr 2026",
+      category: "Foundational Credentials",
+      desc: "HTML5 semantic markup, modern CSS3 Flexbox/Grid, accessibility standards, and responsive UI layouts."
+    }
   ];
 
-  const advancedCerts = [
-    { title: "MASTER OF CLAUDE CODE", issuer: "Coursiv", category: "AI Productivity" },
-    { title: "AI MASTERY CERTIFICATE PROGRAM", issuer: "Coursiv", category: "AI Productivity" },
-    { title: "MASTER OF GEMINI", issuer: "Coursiv", category: "AI Productivity" },
-    { title: "Master of ChatGPT: Deep Dive", issuer: "Coursiv", category: "ChatGPT & Gemini" },
-    { title: "MASTER OF CLAUDE", issuer: "Coursiv", category: "Claude" },
-    { title: "MASTER OF DEEPSEEK", issuer: "Coursiv", category: "AI Business" },
-    { title: "AI for Business Operations", issuer: "Coursiv", category: "AI Business" },
-    { title: "Master of Stable Diffusion", issuer: "Coursiv", category: "AI Creative" },
-    { title: "AI Copywriting", issuer: "Coursiv", category: "AI Creative" },
-    { title: "MASTER OF MIDJOURNEY AI", issuer: "Coursiv", category: "AI Creative" },
-    { title: "JavaScript", issuer: "freeCodeCamp", issued: "May 2026", category: "Technical" },
-    { title: "Responsive Web Design", issuer: "freeCodeCamp", issued: "Apr 2026", category: "Technical" }
+  const skillDeckCerts = allCertifications.filter(c => c.issuer === 'SkillDeck Bangalore');
+
+  const certCategories = [
+    { id: 'all', label: 'All Categories', count: allCertifications.length },
+    { id: 'AI & Automation Expertise', label: 'AI & Automation', count: allCertifications.filter(c => c.category === 'AI & Automation Expertise').length },
+    { id: 'AI for Business & HR', label: 'AI for Business & HR', count: allCertifications.filter(c => c.category === 'AI for Business & HR').length },
+    { id: 'Productivity & Finance', label: 'Productivity & Finance', count: allCertifications.filter(c => c.category === 'Productivity & Finance').length },
+    { id: 'Marketing & Content', label: 'Marketing & Content', count: allCertifications.filter(c => c.category === 'Marketing & Content').length },
+    { id: 'Foundational Credentials', label: 'Foundational & Technical', count: allCertifications.filter(c => c.category === 'Foundational Credentials').length }
   ];
+
+  const certProviders = [
+    { id: 'all', label: 'All Providers', count: 28 },
+    { id: 'SkillDeck Bangalore', label: 'SkillDeck Bangalore', count: 3 },
+    { id: 'Coursiv', label: 'Coursiv', count: 23 },
+    { id: 'freeCodeCamp', label: 'freeCodeCamp', count: 2 }
+  ];
+
+  const filteredCerts = allCertifications.filter(cert => {
+    const matchesProvider = certProviderFilter === 'all' || cert.issuer === certProviderFilter;
+    const matchesCategory = certCategoryFilter === 'all' || cert.category === certCategoryFilter;
+    const matchesSearch = certSearch.trim() === '' || 
+      cert.title.toLowerCase().includes(certSearch.toLowerCase()) ||
+      cert.id.toLowerCase().includes(certSearch.toLowerCase()) ||
+      cert.issuer.toLowerCase().includes(certSearch.toLowerCase()) ||
+      cert.category.toLowerCase().includes(certSearch.toLowerCase()) ||
+      (cert.desc && cert.desc.toLowerCase().includes(certSearch.toLowerCase()));
+    return matchesProvider && matchesCategory && matchesSearch;
+  });
 
   const pagesNav = [
     { id: 'overview', label: 'Overview' },
@@ -901,7 +1140,7 @@ export default function App() {
         )}
 
         {/* ========================================================= */}
-        {/* PAGE 4: CERTIFICATIONS (Dedicated View)                    */}
+        {/* PAGE 4: CERTIFICATIONS (28 Verified Credentials & IDs)   */}
         {/* ========================================================= */}
         {currentPage === 'certifications' && (
           <div className="space-y-10 animate-fadeIn">
@@ -914,73 +1153,325 @@ export default function App() {
                 <span>/</span>
                 <span>Certifications</span>
               </div>
-              <h2 className="text-3xl sm:text-4xl font-black text-slate-900 tracking-tight">Licenses & Certifications</h2>
-              <p className="text-slate-600 text-sm sm:text-base mt-1">
-                Verified professional credentials spanning HR operations, specialized statutory compliance, and cutting-edge generative AI mastery.
-              </p>
+              <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-4">
+                <div>
+                  <h2 className="text-3xl sm:text-4xl font-black text-slate-900 tracking-tight">Licenses & Certifications</h2>
+                  <p className="text-slate-600 text-sm sm:text-base mt-1">
+                    28 verified professional credentials with authentic Credential IDs spanning AI automation, HR operations, compliance, productivity, and technical development.
+                  </p>
+                </div>
+                <div className="flex items-center gap-2 shrink-0">
+                  <span className="px-3.5 py-1.5 rounded-full bg-sky-100 text-sky-800 font-extrabold text-xs border border-sky-200 shadow-sm flex items-center gap-1.5">
+                    <Award className="w-4 h-4 text-sky-600" />
+                    <span>28 Verified Credentials</span>
+                  </span>
+                </div>
+              </div>
             </div>
 
-            {/* SkillDeck Bangalore Featured Section */}
-            <div className="space-y-4">
-              <div className="flex items-center gap-2">
-                <Sparkles className="w-5 h-5 text-sky-600" />
-                <h3 className="text-2xl font-bold text-slate-900">SkillDeck Bangalore (Top Featured HR Certifications)</h3>
+            {/* Provider Summary Statistic Cards (Clickable Quick Filters) */}
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
+              {certProviders.map((prov) => {
+                const isSelected = certProviderFilter === prov.id;
+                return (
+                  <button
+                    key={prov.id}
+                    onClick={() => {
+                      setCertProviderFilter(isSelected && prov.id !== 'all' ? 'all' : prov.id);
+                    }}
+                    className={`text-left p-5 rounded-3xl transition-all duration-200 border ${
+                      isSelected
+                        ? 'bg-slate-900 text-white border-slate-900 shadow-xl scale-[1.02]'
+                        : 'bg-white/75 backdrop-blur-xl text-slate-800 border-white/70 hover:bg-white/90 hover:border-sky-300 shadow-lg shadow-slate-900/5'
+                    }`}
+                  >
+                    <div className="flex items-center justify-between mb-2">
+                      <span className={`text-xs font-bold uppercase tracking-wider ${isSelected ? 'text-sky-300' : 'text-slate-400'}`}>
+                        {prov.id === 'all' ? 'Complete Portfolio' : 'Provider'}
+                      </span>
+                      <span className={`text-xs font-mono px-2 py-0.5 rounded-full font-bold ${
+                        isSelected ? 'bg-white/20 text-white' : 'bg-slate-100 text-slate-700'
+                      }`}>
+                        {prov.count}
+                      </span>
+                    </div>
+                    <div className="text-xl sm:text-2xl font-black leading-tight">{prov.label}</div>
+                    <div className={`text-xs mt-1 font-medium ${isSelected ? 'text-slate-300' : 'text-slate-500'}`}>
+                      {prov.id === 'all' && 'All authentic credentials'}
+                      {prov.id === 'SkillDeck Bangalore' && 'Featured HR & labour code credentials'}
+                      {prov.id === 'Coursiv' && 'AI mastery, agents & operations'}
+                      {prov.id === 'freeCodeCamp' && 'JavaScript & responsive web design'}
+                    </div>
+                  </button>
+                );
+              })}
+            </div>
+
+            {/* LinkedIn 29th Cert Sync Callout */}
+            <div className="bg-gradient-to-r from-sky-500/10 via-blue-500/10 to-indigo-500/10 backdrop-blur-xl border border-sky-200/80 rounded-2xl p-4 sm:p-5 flex items-start gap-3.5 text-slate-700 text-xs sm:text-sm">
+              <div className="w-8 h-8 rounded-xl bg-sky-500 text-white flex items-center justify-center shrink-0 mt-0.5 shadow-sm">
+                <Info className="w-4 h-4" />
+              </div>
+              <div className="space-y-1">
+                <div className="font-bold text-slate-900 flex items-center gap-2">
+                  <span>28 Credentials Cataloged with Verified IDs</span>
+                  <span className="text-[10px] font-bold px-2 py-0.5 rounded bg-sky-100 text-sky-800 border border-sky-200">
+                    LinkedIn Sync Status
+                  </span>
+                </div>
+                <p className="text-slate-600 leading-relaxed">
+                  You currently have 28 certifications fully documented below with verified credential IDs. Since your LinkedIn profile displays 29 licenses & certifications, 1 additional certification is queued for verification synchronization.
+                </p>
+              </div>
+            </div>
+
+            {/* Search Bar & Category Filter Pills */}
+            <div className="bg-white/75 backdrop-blur-2xl rounded-3xl p-6 shadow-xl shadow-slate-900/5 border border-white/70 space-y-4">
+              <div className="flex flex-col md:flex-row items-stretch md:items-center justify-between gap-4">
+                {/* Search Input */}
+                <div className="relative flex-1">
+                  <Search className="w-4 h-4 text-slate-400 absolute left-4 top-1/2 -translate-y-1/2" />
+                  <input
+                    type="text"
+                    value={certSearch}
+                    onChange={(e) => setCertSearch(e.target.value)}
+                    placeholder="Search 28 certifications by title, tool (e.g. Claude, ChatGPT, POSH), or credential ID..."
+                    className="w-full pl-11 pr-4 py-3 rounded-2xl bg-white/90 border border-slate-200 text-slate-800 placeholder-slate-400 text-sm focus:outline-none focus:border-sky-500 focus:ring-2 focus:ring-sky-500/20"
+                  />
+                  {certSearch && (
+                    <button
+                      onClick={() => setCertSearch('')}
+                      className="absolute right-3 top-1/2 -translate-y-1/2 text-xs font-bold text-slate-400 hover:text-slate-600 px-2 py-1"
+                    >
+                      Clear
+                    </button>
+                  )}
+                </div>
+
+                {/* Reset Filters Button if filtered */}
+                {(certProviderFilter !== 'all' || certCategoryFilter !== 'all' || certSearch.trim() !== '') && (
+                  <button
+                    onClick={() => {
+                      setCertProviderFilter('all');
+                      setCertCategoryFilter('all');
+                      setCertSearch('');
+                    }}
+                    className="px-4 py-3 rounded-2xl bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold text-xs transition-colors shrink-0"
+                  >
+                    Reset Filters
+                  </button>
+                )}
               </div>
 
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                {skillDeckCerts.map((cert, idx) => (
-                  <div
-                    key={idx}
-                    className="bg-white/75 backdrop-blur-2xl p-7 rounded-3xl border border-sky-200 shadow-xl shadow-sky-500/5 relative hover:border-sky-500 hover:bg-white/85 transition-all"
-                  >
-                    <div className="absolute top-5 right-5 bg-sky-100 text-sky-800 text-[10px] font-black px-2.5 py-0.5 rounded-full border border-sky-200">
-                      TOP FEATURED
-                    </div>
-                    <div className="w-10 h-10 rounded-xl bg-sky-50 text-sky-600 flex items-center justify-center font-bold mb-4">
-                      <Award className="w-5 h-5" />
-                    </div>
-                    <h4 className="font-bold text-lg text-slate-900 mb-1 pr-14">{cert.title}</h4>
-                    <p className="text-xs text-sky-600 font-semibold mb-4">{cert.issuer}</p>
-                    <div className="text-xs text-slate-500 space-y-1.5 pt-4 border-t border-slate-100">
-                      <p><span className="font-medium text-slate-700">Issued:</span> {cert.issued}</p>
-                      <p className="font-mono text-[11px] text-slate-700"><span className="font-sans font-medium text-slate-700">ID:</span> {cert.id}</p>
-                    </div>
+              {/* Category Filter Pills */}
+              <div className="flex items-center gap-2 overflow-x-auto pt-2 pb-1 scrollbar-none">
+                <span className="text-xs font-bold text-slate-400 uppercase tracking-wider shrink-0 mr-1 flex items-center gap-1">
+                  <Filter className="w-3.5 h-3.5" /> Domain:
+                </span>
+                {certCategories.map((cat) => {
+                  const isSelected = certCategoryFilter === cat.id;
+                  return (
+                    <button
+                      key={cat.id}
+                      onClick={() => setCertCategoryFilter(isSelected && cat.id !== 'all' ? 'all' : cat.id)}
+                      className={`px-3.5 py-1.5 rounded-full text-xs font-bold whitespace-nowrap transition-all flex items-center gap-1.5 ${
+                        isSelected
+                          ? 'bg-sky-600 text-white shadow-md'
+                          : 'bg-white/80 border border-slate-200 text-slate-700 hover:border-sky-400 hover:bg-white'
+                      }`}
+                    >
+                      <span>{cat.label}</span>
+                      <span className={`text-[10px] px-1.5 py-0.2 rounded-full font-mono ${
+                        isSelected ? 'bg-white/25 text-white' : 'bg-slate-100 text-slate-600'
+                      }`}>
+                        {cat.count}
+                      </span>
+                    </button>
+                  );
+                })}
+              </div>
+            </div>
+
+            {/* Top Featured Section (SkillDeck Bangalore) - Highlighted prominently */}
+            {(certProviderFilter === 'all' || certProviderFilter === 'SkillDeck Bangalore') && !certSearch && (
+              <div className="space-y-4">
+                <div className="flex items-center justify-between">
+                  <div className="flex items-center gap-2">
+                    <Sparkles className="w-5 h-5 text-sky-600" />
+                    <h3 className="text-2xl font-bold text-slate-900">SkillDeck Bangalore (Top Featured HR Certifications)</h3>
                   </div>
-                ))}
-              </div>
-            </div>
+                  <span className="text-xs font-bold text-sky-600 uppercase tracking-wider hidden sm:inline">
+                    High Priority Executive Credentials
+                  </span>
+                </div>
 
-            {/* Other Advanced Certifications (Coursiv, Claude, Gemini, ChatGPT, etc.) */}
-            <div className="space-y-4 pt-4">
-              <div>
-                <h3 className="text-2xl font-bold text-slate-900">Coursiv AI Mastery & Technical Certifications</h3>
-                <p className="text-slate-500 text-xs sm:text-sm">Specialized certifications in Claude Code, Gemini, ChatGPT, and Web Development.</p>
-              </div>
-
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-                {advancedCerts.map((cert, idx) => (
-                  <div
-                    key={idx}
-                    className="bg-white/75 backdrop-blur-xl p-5 rounded-2xl border border-white/70 shadow-sm hover:shadow-md hover:border-sky-400 hover:bg-white/85 transition-all flex flex-col justify-between"
-                  >
-                    <div>
-                      <div className="flex items-center justify-between mb-2">
-                        <span className="text-[10px] font-bold px-2 py-0.5 rounded-md bg-slate-100 text-slate-700 uppercase">
-                          {cert.category}
-                        </span>
-                        <CheckCircle2 className="w-4 h-4 text-emerald-600" />
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                  {skillDeckCerts.map((cert) => (
+                    <div
+                      key={cert.id}
+                      className="bg-white/80 backdrop-blur-2xl p-7 rounded-3xl border-2 border-sky-300 shadow-xl shadow-sky-500/10 relative hover:border-sky-500 hover:bg-white hover:shadow-2xl transition-all flex flex-col justify-between"
+                    >
+                      <div>
+                        <div className="flex items-center justify-between mb-4">
+                          <span className="bg-gradient-to-r from-amber-500 to-yellow-600 text-white text-[10px] font-black px-3 py-1 rounded-full shadow-sm tracking-wide">
+                            ★ TOP FEATURED
+                          </span>
+                          <span className="text-[11px] font-bold text-sky-700 bg-sky-50 px-2.5 py-0.5 rounded-lg border border-sky-100">
+                            {cert.issuer}
+                          </span>
+                        </div>
+                        <div className="w-12 h-12 rounded-2xl bg-sky-50 text-sky-600 flex items-center justify-center font-bold mb-3 border border-sky-100 shadow-sm">
+                          <Award className="w-6 h-6" />
+                        </div>
+                        <h4 className="font-extrabold text-xl text-slate-900 mb-2 leading-tight">{cert.title}</h4>
+                        <p className="text-xs text-slate-600 leading-relaxed mb-4">{cert.desc}</p>
                       </div>
-                      <h4 className="font-bold text-sm text-slate-900 mb-1">{cert.title}</h4>
-                      <p className="text-xs text-slate-500">{cert.issuer}</p>
+
+                      <div className="pt-4 border-t border-slate-100 space-y-2.5">
+                        <div className="flex items-center justify-between text-xs text-slate-500">
+                          <span className="font-semibold text-slate-700">Issued Date:</span>
+                          <span className="font-bold text-slate-800">{cert.issued}</span>
+                        </div>
+                        <div className="flex items-center justify-between">
+                          <span className="text-[11px] font-semibold text-slate-500">Credential ID:</span>
+                          <button
+                            onClick={() => handleCopyId(cert.id)}
+                            className="font-mono text-[11px] font-bold px-2.5 py-1 rounded-lg bg-sky-50 hover:bg-sky-100 text-sky-800 border border-sky-200 flex items-center gap-1.5 transition-all"
+                            title="Click to copy Credential ID"
+                          >
+                            <span>{cert.id}</span>
+                            {copiedId === cert.id ? (
+                              <CheckCheck className="w-3.5 h-3.5 text-emerald-600" />
+                            ) : (
+                              <Copy className="w-3 h-3 text-sky-600" />
+                            )}
+                          </button>
+                        </div>
+                        {copiedId === cert.id && (
+                          <div className="text-right text-[10px] font-bold text-emerald-600 animate-fadeIn">
+                            ✓ Copied to clipboard!
+                          </div>
+                        )}
+                      </div>
                     </div>
-                    <div className="text-xs text-slate-400 pt-3 mt-3 border-t border-slate-100 flex items-center justify-between">
-                      <span>Verified Credential</span>
-                      {cert.issued && <span className="font-mono text-[11px] text-sky-700 font-semibold">Issued: {cert.issued}</span>}
-                    </div>
-                  </div>
-                ))}
+                  ))}
+                </div>
               </div>
+            )}
+
+            {/* Complete Filtered Certifications Grid */}
+            <div className="space-y-4 pt-2">
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+                <div>
+                  <h3 className="text-2xl font-bold text-slate-900">
+                    {certProviderFilter !== 'all' ? `${certProviderFilter} Certifications` : 'All Verified Certifications'}
+                  </h3>
+                  <p className="text-slate-500 text-xs sm:text-sm">
+                    Showing {filteredCerts.length} of {allCertifications.length} verified credentials
+                    {certCategoryFilter !== 'all' && ` in ${certCategoryFilter}`}
+                    {certSearch && ` matching "${certSearch}"`}
+                  </p>
+                </div>
+              </div>
+
+              {filteredCerts.length === 0 ? (
+                <div className="bg-white/75 backdrop-blur-xl rounded-3xl p-12 text-center border border-white/70 space-y-3">
+                  <div className="w-12 h-12 rounded-full bg-slate-100 text-slate-400 mx-auto flex items-center justify-center">
+                    <Search className="w-6 h-6" />
+                  </div>
+                  <h4 className="text-lg font-bold text-slate-800">No certifications matched your filter</h4>
+                  <p className="text-xs text-slate-500 max-w-sm mx-auto">
+                    Try adjusting your search query or reset your provider and category filters.
+                  </p>
+                  <button
+                    onClick={() => {
+                      setCertProviderFilter('all');
+                      setCertCategoryFilter('all');
+                      setCertSearch('');
+                    }}
+                    className="px-4 py-2 rounded-xl bg-sky-600 text-white font-bold text-xs shadow-md hover:bg-sky-700 transition-colors"
+                  >
+                    View All 28 Certifications
+                  </button>
+                </div>
+              ) : (
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+                  {filteredCerts.map((cert) => {
+                    const isSkillDeck = cert.issuer === 'SkillDeck Bangalore';
+                    const isFCC = cert.issuer === 'freeCodeCamp';
+                    const isCoursiv = cert.issuer === 'Coursiv';
+
+                    return (
+                      <div
+                        key={cert.id}
+                        className="bg-white/75 backdrop-blur-xl p-6 rounded-3xl border border-white/70 shadow-lg shadow-slate-900/5 hover:shadow-xl hover:border-sky-400 hover:bg-white/90 transition-all flex flex-col justify-between group"
+                      >
+                        <div>
+                          {/* Card Top Pill Row */}
+                          <div className="flex items-center justify-between gap-2 mb-3">
+                            <span className={`text-[10px] font-black px-2.5 py-0.5 rounded-full border ${
+                              isSkillDeck 
+                                ? 'bg-sky-100 text-sky-800 border-sky-200'
+                                : isFCC
+                                ? 'bg-emerald-100 text-emerald-800 border-emerald-200'
+                                : 'bg-indigo-50 text-indigo-700 border-indigo-200'
+                            }`}>
+                              {cert.issuer}
+                            </span>
+                            <span className="text-[10px] font-bold px-2 py-0.5 rounded-md bg-slate-100 text-slate-600 uppercase">
+                              {cert.category}
+                            </span>
+                          </div>
+
+                          <h4 className="font-extrabold text-base text-slate-900 mb-1.5 group-hover:text-sky-600 transition-colors leading-snug">
+                            {cert.title}
+                          </h4>
+                          {cert.desc && (
+                            <p className="text-xs text-slate-600 leading-relaxed mb-4 line-clamp-2">
+                              {cert.desc}
+                            </p>
+                          )}
+                        </div>
+
+                        {/* Card Bottom / Credential ID Strip */}
+                        <div className="pt-4 border-t border-slate-100 space-y-2">
+                          <div className="flex items-center justify-between text-xs">
+                            <span className="text-slate-400 text-[11px] font-semibold">Credential ID</span>
+                            <button
+                              onClick={() => handleCopyId(cert.id)}
+                              className="font-mono text-[11px] font-bold px-2.5 py-1 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-800 flex items-center gap-1.5 transition-all group/btn"
+                              title="Click to copy Credential ID"
+                            >
+                              <span>{cert.id}</span>
+                              {copiedId === cert.id ? (
+                                <CheckCheck className="w-3.5 h-3.5 text-emerald-600" />
+                              ) : (
+                                <Copy className="w-3 h-3 text-slate-500 group-hover/btn:text-slate-900" />
+                              )}
+                            </button>
+                          </div>
+                          {copiedId === cert.id && (
+                            <div className="text-right text-[10px] font-bold text-emerald-600 animate-fadeIn">
+                              ✓ Copied to clipboard!
+                            </div>
+                          )}
+
+                          <div className="flex items-center justify-between pt-1 text-[11px] text-slate-400">
+                            <span className="flex items-center gap-1 text-emerald-600 font-semibold">
+                              <CheckCircle2 className="w-3.5 h-3.5" /> Verified Credential
+                            </span>
+                            {cert.issued && (
+                              <span className="font-medium text-slate-500">Issued: {cert.issued}</span>
+                            )}
+                          </div>
+                        </div>
+                      </div>
+                    );
+                  })}
+                </div>
+              )}
             </div>
+
           </div>
         )}
 
