@@ -1320,8 +1320,8 @@ export default function App() {
               </div>
             </div>
 
-            {/* Top Featured Section (SkillDeck Bangalore) - Highlighted prominently */}
-            {(certProviderFilter === 'all' || certProviderFilter === 'SkillDeck Bangalore') && !certSearch && (
+            {/* Top Featured Section (SkillDeck Bangalore) - Appears ONLY in All Categories */}
+            {certCategoryFilter === 'all' && (certProviderFilter === 'all' || certProviderFilter === 'SkillDeck Bangalore') && !certSearch && (
               <div className="space-y-4">
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-2">
@@ -1392,7 +1392,11 @@ export default function App() {
               <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
                 <div>
                   <h3 className="text-2xl font-bold text-slate-900">
-                    {certProviderFilter !== 'all' ? `${certProviderFilter} Certifications` : 'All Verified Certifications'}
+                    {certCategoryFilter !== 'all'
+                      ? `${certCategoryFilter} (${filteredCerts.length})`
+                      : certProviderFilter !== 'all'
+                      ? `${certProviderFilter} Certifications (${filteredCerts.length})`
+                      : 'All Verified Certifications (28)'}
                   </h3>
                   <p className="text-slate-500 text-xs sm:text-sm">
                     Showing {filteredCerts.length} of {allCertifications.length} verified credentials
