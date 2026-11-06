@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { 
-  Briefcase, Award, GraduationCap, Mail, MapPin, 
-  CheckCircle2, TrendingUp, Users, ShieldCheck, DollarSign, 
+import {
+  Briefcase, Award, GraduationCap, Mail, MapPin,
+  CheckCircle2, TrendingUp, Users, ShieldCheck, DollarSign,
   Sparkles, ChevronRight, ChevronLeft, BookOpen, Layers, Send,
   Play, Clock, Building, Check, ExternalLink, ArrowRight, Star,
   Home, Phone
@@ -95,7 +95,7 @@ export default function App() {
 
     setSubmitted(true);
     setIsSubmitting(false);
-    setSubmissionFeedback(`Thank you, ${contactForm.name}! Your message has been sent to harshaallakonda1998@gmail.com.`);
+    setSubmissionFeedback(`Thank you, ${contactForm.name}! Your message has been sent successfully.`);
     setContactForm({ name: '', email: '', message: '' });
     setTimeout(() => setSubmitted(false), 8000);
   };
@@ -270,14 +270,14 @@ export default function App() {
 
   return (
     <div className="relative min-h-screen bg-[#F8FAFC] text-slate-800 flex flex-col font-sans selection:bg-sky-500 selection:text-white">
-      
+
       {/* Luminous Full-Bleed Video Background (Increased Transparency) */}
       <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden">
-        <video 
-          autoPlay 
-          loop 
-          muted 
-          playsInline 
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
           className="w-full h-full object-cover scale-105 filter brightness-[0.98] contrast-[1.02]"
         >
           <source src="/HR_professionals_shaking_hands_1cd5d1a3_1080p.mp4" type="video/mp4" />
@@ -290,7 +290,7 @@ export default function App() {
       {/* Floating Glassmorphic Pill Header as True Page Links */}
       <header className="sticky top-4 z-40 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
         <div className="bg-white/75 backdrop-blur-2xl border border-white/70 shadow-lg shadow-slate-900/5 rounded-2xl md:rounded-full px-5 py-3 flex items-center justify-between transition-all">
-          <div 
+          <div
             onClick={() => navigateTo('overview')}
             className="flex items-center space-x-3 cursor-pointer group"
           >
@@ -312,11 +312,10 @@ export default function App() {
               <button
                 key={page.id}
                 onClick={() => navigateTo(page.id)}
-                className={`px-4 py-1.5 rounded-full text-xs font-bold transition-all ${
-                  currentPage === page.id
+                className={`px-4 py-1.5 rounded-full text-xs font-bold transition-all ${currentPage === page.id
                     ? 'bg-slate-900 text-white shadow-md'
                     : 'text-slate-600 hover:text-slate-900 hover:bg-white/60'
-                }`}
+                  }`}
               >
                 {page.label}
               </button>
@@ -340,11 +339,10 @@ export default function App() {
             <button
               key={page.id}
               onClick={() => navigateTo(page.id)}
-              className={`px-3 py-1 rounded-xl text-xs font-bold whitespace-nowrap transition-all ${
-                currentPage === page.id
+              className={`px-3 py-1 rounded-xl text-xs font-bold whitespace-nowrap transition-all ${currentPage === page.id
                   ? 'bg-slate-900 text-white shadow-sm'
                   : 'text-slate-600 hover:bg-white/60'
-              }`}
+                }`}
             >
               {page.label}
             </button>
@@ -360,11 +358,11 @@ export default function App() {
         {/* ========================================================= */}
         {currentPage === 'overview' && (
           <div className="space-y-12 animate-fadeIn">
-            
+
             {/* Hero Section */}
             <section className="pt-4 pb-4 sm:pt-8 sm:pb-8 w-full">
               <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-                
+
                 {/* Left Hero Content */}
                 <div className="lg:col-span-7 space-y-6">
                   <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/80 backdrop-blur-md text-sky-800 text-xs font-bold tracking-wide border border-white/80 shadow-sm">
@@ -428,15 +426,15 @@ export default function App() {
                 {/* Right Floating Video Card */}
                 <div className="lg:col-span-5">
                   <div className="bg-white/80 backdrop-blur-2xl rounded-3xl p-5 border border-white/80 shadow-2xl shadow-slate-900/10 space-y-4">
-                    <div 
+                    <div
                       onClick={() => setIsVideoModalOpen(true)}
                       className="group relative rounded-2xl overflow-hidden aspect-video cursor-pointer shadow-inner bg-slate-950"
                     >
-                      <video 
-                        muted 
-                        loop 
-                        autoPlay 
-                        playsInline 
+                      <video
+                        muted
+                        loop
+                        autoPlay
+                        playsInline
                         className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-85"
                       >
                         <source src="/HR_professionals_shaking_hands_1cd5d1a3_1080p.mp4" type="video/mp4" />
@@ -522,15 +520,14 @@ export default function App() {
                       <div
                         key={scene.id}
                         onClick={() => setActiveScene(idx)}
-                        className={`group relative rounded-2xl overflow-hidden cursor-pointer transition-all duration-300 ${
-                          isSelected
+                        className={`group relative rounded-2xl overflow-hidden cursor-pointer transition-all duration-300 ${isSelected
                             ? 'ring-4 ring-sky-500 shadow-xl shadow-sky-500/25 scale-[1.03]'
                             : 'border border-slate-200/80 hover:border-sky-300 opacity-80 hover:opacity-100 hover:scale-[1.01]'
-                        }`}
+                          }`}
                       >
                         <div className="h-28 sm:h-32 w-full relative overflow-hidden bg-slate-900">
-                          <img 
-                            src={scene.bgImage} 
+                          <img
+                            src={scene.bgImage}
                             alt={scene.title}
                             className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500 opacity-70"
                           />
@@ -712,7 +709,7 @@ export default function App() {
               {/* Role 1: PREPDHA */}
               <div className="bg-white/75 backdrop-blur-2xl p-8 sm:p-10 rounded-3xl border border-white/70 shadow-xl shadow-slate-900/5 relative overflow-hidden">
                 <div className="absolute top-0 left-0 w-2.5 h-full bg-gradient-to-b from-sky-500 to-blue-600"></div>
-                
+
                 <div className="flex flex-col md:flex-row md:items-center justify-between gap-3 mb-6 pb-6 border-b border-slate-200/60">
                   <div>
                     <span className="text-xs font-extrabold px-3 py-1 rounded-full bg-sky-100 text-sky-800 border border-sky-200">Current Role</span>
@@ -771,7 +768,7 @@ export default function App() {
               {/* Role 2: Genesys Info X */}
               <div className="bg-white/75 backdrop-blur-2xl p-8 sm:p-10 rounded-3xl border border-white/70 shadow-xl shadow-slate-900/5 relative overflow-hidden">
                 <div className="absolute top-0 left-0 w-2.5 h-full bg-slate-400"></div>
-                
+
                 <div className="flex flex-col md:flex-row md:items-center justify-between gap-3 mb-6 pb-6 border-b border-slate-200/60">
                   <div>
                     <span className="text-xs font-extrabold px-3 py-1 rounded-full bg-slate-100 text-slate-700 border border-slate-200">Executive Experience</span>
@@ -838,7 +835,7 @@ export default function App() {
                 {hrPortals.map((portal, idx) => {
                   const IconComp = portal.icon;
                   return (
-                    <div 
+                    <div
                       key={idx}
                       className="bg-white/75 backdrop-blur-xl p-7 rounded-3xl border border-white/70 shadow-xl shadow-slate-900/5 hover:bg-white/85 hover:shadow-2xl hover:border-sky-300 transition-all flex flex-col justify-between"
                     >
@@ -884,8 +881,8 @@ export default function App() {
                   { title: "POSH Compliance & ICC Management", desc: "Prevention of Sexual Harassment awareness programs, committee governance, and training." },
                   { title: "HRMS (Zoho People & Zoho Payroll)", desc: "System administration, biometric attendance sync, leave tracking, and data integrity." }
                 ].map((item, idx) => (
-                  <div 
-                    key={idx} 
+                  <div
+                    key={idx}
                     className="bg-white/75 backdrop-blur-xl p-6 rounded-3xl border border-white/70 shadow-lg shadow-slate-900/5 hover:bg-white/85 transition-all"
                   >
                     <div className="flex items-center justify-between mb-3">
@@ -932,7 +929,7 @@ export default function App() {
 
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                 {skillDeckCerts.map((cert, idx) => (
-                  <div 
+                  <div
                     key={idx}
                     className="bg-white/75 backdrop-blur-2xl p-7 rounded-3xl border border-sky-200 shadow-xl shadow-sky-500/5 relative hover:border-sky-500 hover:bg-white/85 transition-all"
                   >
@@ -962,7 +959,7 @@ export default function App() {
 
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
                 {advancedCerts.map((cert, idx) => (
-                  <div 
+                  <div
                     key={idx}
                     className="bg-white/75 backdrop-blur-xl p-5 rounded-2xl border border-white/70 shadow-sm hover:shadow-md hover:border-sky-400 hover:bg-white/85 transition-all flex flex-col justify-between"
                   >
@@ -1017,7 +1014,7 @@ export default function App() {
                   </div>
                   <h3 className="text-xl sm:text-2xl font-bold text-slate-900">Bachelor of Technology - BTech</h3>
                   <p className="text-base font-semibold text-slate-700 mt-1">Metallurgical and Materials Engineering</p>
-                  
+
                   <div className="border-t border-slate-100 pt-4 mt-4 text-slate-600 text-sm space-y-2">
                     <p className="font-semibold text-slate-800">RGUKT Basar / Rajiv Gandhi University of Knowledge Technologies</p>
                     <p className="text-xs text-slate-500">RK Valley (RAC)</p>
@@ -1042,7 +1039,7 @@ export default function App() {
                   </div>
                   <h3 className="text-xl sm:text-2xl font-bold text-slate-900">Pre University Course (PUC)</h3>
                   <p className="text-base font-semibold text-slate-700 mt-1">M.Bi.P.C (Mathematics, Biology, Physics, Chemistry)</p>
-                  
+
                   <div className="border-t border-slate-100 pt-4 mt-4 text-slate-600 text-sm space-y-2">
                     <p className="font-semibold text-slate-800">Rajiv Gandhi University of Knowledge Technologies</p>
                     <p className="text-xs text-slate-500">RK Valley (RAC)</p>
@@ -1082,12 +1079,12 @@ export default function App() {
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-start">
-              
+
               {/* Direct Info Cards */}
               <div className="md:col-span-5 space-y-4">
                 <div className="bg-white/75 backdrop-blur-2xl p-6 rounded-3xl border border-white/70 shadow-xl space-y-4">
                   <h3 className="font-bold text-lg text-slate-900 border-b border-slate-100 pb-3">Contact Details</h3>
-                  
+
                   <div className="space-y-3.5 text-xs sm:text-sm">
                     <div className="flex items-start gap-3">
                       <div className="w-9 h-9 rounded-xl bg-sky-50 text-sky-600 flex items-center justify-center shrink-0 border border-sky-100">
@@ -1101,25 +1098,13 @@ export default function App() {
 
                     <div className="flex items-start gap-3">
                       <div className="w-9 h-9 rounded-xl bg-sky-50 text-sky-600 flex items-center justify-center shrink-0 border border-sky-100">
-                        <Mail className="w-4 h-4" />
-                      </div>
-                      <div>
-                        <div className="font-bold text-slate-900">Email Address</div>
-                        <a href="mailto:harshaallakonda1998@gmail.com" className="text-sky-600 font-semibold hover:underline break-all">
-                          harshaallakonda1998@gmail.com
-                        </a>
-                      </div>
-                    </div>
-
-                    <div className="flex items-start gap-3">
-                      <div className="w-9 h-9 rounded-xl bg-sky-50 text-sky-600 flex items-center justify-center shrink-0 border border-sky-100">
                         <Linkedin className="w-4 h-4" />
                       </div>
                       <div>
                         <div className="font-bold text-slate-900">LinkedIn Profile</div>
-                        <a 
-                          href="https://www.linkedin.com/in/harsha-allakonda-8134813b4" 
-                          target="_blank" 
+                        <a
+                          href="https://www.linkedin.com/in/harsha-allakonda-8134813b4"
+                          target="_blank"
                           rel="noreferrer"
                           className="text-sky-600 font-semibold hover:underline"
                         >
@@ -1164,13 +1149,13 @@ export default function App() {
                     </div>
                   )}
 
-                  <form 
-                    name="contact" 
-                    method="POST" 
+                  <form
+                    name="contact"
+                    method="POST"
                     action="https://formsubmit.co/harshaallakonda1998@gmail.com"
-                    data-netlify="true" 
+                    data-netlify="true"
                     data-netlify-honeypot="bot-field"
-                    onSubmit={handleSubmit} 
+                    onSubmit={handleSubmit}
                     className="space-y-4"
                   >
                     <input type="hidden" name="form-name" value="contact" />
@@ -1224,7 +1209,7 @@ export default function App() {
                       {isSubmitting ? (
                         <>
                           <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
-                          <span>Sending to harshaallakonda1998@gmail.com...</span>
+                          <span>Sending...</span>
                         </>
                       ) : (
                         <>
@@ -1254,7 +1239,6 @@ export default function App() {
           </div>
           <div className="flex items-center space-x-6">
             <button onClick={() => navigateTo('contact')} className="hover:text-sky-600 transition-colors">Contact</button>
-            <a href="mailto:harshaallakonda1998@gmail.com" className="hover:text-sky-600 transition-colors">Email</a>
             <a href="https://www.linkedin.com/in/harsha-allakonda-8134813b4" target="_blank" rel="noreferrer" className="hover:text-sky-600 transition-colors flex items-center gap-1">
               <Linkedin className="w-3.5 h-3.5" /> LinkedIn
             </a>
@@ -1266,7 +1250,7 @@ export default function App() {
       {isVideoModalOpen && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/80 backdrop-blur-md animate-fadeIn">
           <div className="relative w-full max-w-4xl bg-slate-900 rounded-3xl overflow-hidden shadow-2xl border border-white/20">
-            <button 
+            <button
               onClick={() => setIsVideoModalOpen(false)}
               className="absolute top-4 right-4 z-10 w-10 h-10 rounded-full bg-black/60 text-white flex items-center justify-center hover:bg-black transition-all"
               aria-label="Close video"
@@ -1283,7 +1267,7 @@ export default function App() {
                 <h3 className="font-bold text-lg text-white">Executive Story • HR Leadership in Action</h3>
                 <p className="text-xs text-slate-400">Harsha Allakonda • Human Resources Manager at PREPDHA</p>
               </div>
-              <button 
+              <button
                 onClick={() => setIsVideoModalOpen(false)}
                 className="px-4 py-2 rounded-xl bg-sky-500 hover:bg-sky-600 text-white text-xs font-bold transition-colors"
               >
