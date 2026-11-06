@@ -63,11 +63,17 @@ export default function App() {
     setSubmissionFeedback('');
 
     const recipientEmail = "harshaallakonda1998@gmail.com";
-    let sentSuccessfully = false;
+    const mailtoUrl = `mailto:${recipientEmail}?subject=${encodeURIComponent("Portfolio Message from " + contactForm.name + " (PREPDHA HR)")}&body=${encodeURIComponent("Name: " + contactForm.name + "\nEmail: " + contactForm.email + "\n\nMessage:\n" + contactForm.message)}`;
 
+    let formSubmitSuccess = false;
+    let netlifySuccess = false;
+
+    // 1. Submit to FormSubmit.co with a strict 4-second timeout to handle outages gracefully
     try {
-      // 1. Submit directly via FormSubmit.co AJAX to harshaallakonda1998@gmail.com
-      const formSubmitPromise = fetch(`https://formsubmit.co/ajax/${recipientEmail}`, {
+      const controller = new AbortController();
+      const timeoutId = setTimeout(() => controller.abort(), 4000);
+
+      const res = await fetch(`https://formsubmit.co/ajax/${recipientEmail}`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -80,36 +86,57 @@ export default function App() {
           _subject: `New Portfolio Message from ${contactForm.name} (PREPDHA HR)`,
           _template: 'table',
           _captcha: 'false'
-        })
+        }),
+        signal: controller.signal
       });
 
-      // 2. Also submit to Netlify Forms backend if deployed on Netlify
-      const encode = (data) => Object.keys(data).map(k => encodeURIComponent(k) + "=" + encodeURIComponent(data[k])).join("&");
-      const netlifyPromise = fetch('/', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: encode({ 'form-name': 'contact', ...contactForm })
-      });
-
-      const results = await Promise.allSettled([formSubmitPromise, netlifyPromise]);
-      const anySuccess = results.some(r => r.status === 'fulfilled' && (r.value?.ok || r.value?.status === 200));
-
-      if (anySuccess) {
-        sentSuccessfully = true;
+      clearTimeout(timeoutId);
+      if (res.ok) {
+        const data = await res.json().catch(() => null);
+        if (data && (data.success === 'true' || data.success === true)) {
+          formSubmitSuccess = true;
+        }
       }
     } catch (err) {
-      console.warn("Direct submission notice:", err);
+      console.warn("FormSubmit notice:", err);
     }
 
-    if (!sentSuccessfully) {
-      window.location.href = `mailto:${recipientEmail}?subject=${encodeURIComponent("Portfolio Message from " + contactForm.name)}&body=${encodeURIComponent("Name: " + contactForm.name + "\nEmail: " + contactForm.email + "\n\nMessage:\n" + contactForm.message)}`;
+    // 2. Submit to Netlify Forms backend if running on Netlify in production
+    const isLocal = typeof window !== 'undefined' && (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1');
+    if (!isLocal) {
+      try {
+        const encode = (data) => Object.keys(data).map(k => encodeURIComponent(k) + "=" + encodeURIComponent(data[k])).join("&");
+        const netlifyRes = await fetch('/', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+          body: encode({ 'form-name': 'contact', ...contactForm })
+        });
+        if (netlifyRes.ok) {
+          netlifySuccess = true;
+        }
+      } catch (err) {
+        console.warn("Netlify Forms notice:", err);
+      }
+    }
+
+    // 3. Fallback: If running locally or FormSubmit is unavailable, launch email app directly
+    if (!formSubmitSuccess && !netlifySuccess) {
+      window.location.href = mailtoUrl;
     }
 
     setSubmitted(true);
     setIsSubmitting(false);
-    setSubmissionFeedback(`Thank you, ${contactForm.name}! Your message has been sent successfully.`);
+
+    if (formSubmitSuccess) {
+      setSubmissionFeedback(`Thank you, ${contactForm.name}! Your message was successfully sent to ${recipientEmail}.`);
+    } else if (netlifySuccess) {
+      setSubmissionFeedback(`Thank you, ${contactForm.name}! Your message was received by Netlify Forms.`);
+    } else {
+      setSubmissionFeedback(`Thank you, ${contactForm.name}! We opened your email client to send your message directly to ${recipientEmail}.`);
+    }
+
     setContactForm({ name: '', email: '', message: '' });
-    setTimeout(() => setSubmitted(false), 8000);
+    setTimeout(() => setSubmitted(false), 10000);
   };
 
   const hrScenes = [
@@ -1741,6 +1768,18 @@ export default function App() {
                         </>
                       )}
                     </button>
+
+                    <div className="pt-3 text-center border-t border-slate-100">
+                      <p className="text-xs text-slate-500">
+                        Prefer sending directly from your email app?{' '}
+                        <a 
+                          href="mailto:harshaallakonda1998@gmail.com?subject=HR%20Inquiry%20from%20Portfolio" 
+                          className="font-bold text-sky-600 hover:text-sky-700 hover:underline inline-flex items-center gap-1"
+                        >
+                          Open in Gmail / Email App <ExternalLink className="w-3 h-3" />
+                        </a>
+                      </p>
+                    </div>
                   </form>
                 </div>
               </div>
