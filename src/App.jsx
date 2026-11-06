@@ -1255,8 +1255,8 @@ export default function App() {
               })}
             </div>
 
-            {/* LinkedIn 29th Cert Sync Callout - Pristine High-Contrast Frosted Glass */}
-            <div className="bg-white/95 backdrop-blur-2xl rounded-3xl p-6 border border-slate-100 shadow-xl shadow-slate-900/5 flex items-start gap-4 transition-all">
+            {/* LinkedIn 29th Cert Sync Callout - Premium Frosted Glass Effect */}
+            <div className="bg-white/50 backdrop-blur-2xl rounded-3xl p-6 border border-white/80 shadow-xl shadow-slate-900/5 flex items-start gap-4 transition-all hover:bg-white/60">
               <div className="w-10 h-10 rounded-2xl bg-sky-500 text-white flex items-center justify-center shrink-0 shadow-md shadow-sky-500/25 mt-0.5">
                 <Info className="w-5 h-5 stroke-[2.5]" />
               </div>
@@ -1265,12 +1265,12 @@ export default function App() {
                   <h4 className="text-base sm:text-lg font-black text-slate-900 tracking-tight">
                     28 Credentials Cataloged with Verified IDs
                   </h4>
-                  <span className="text-[11px] font-extrabold px-3 py-0.5 rounded-full bg-sky-100 text-sky-800 border border-sky-200">
+                  <span className="text-[11px] font-extrabold px-3 py-0.5 rounded-full bg-white/80 backdrop-blur-md text-sky-800 border border-white/80 shadow-sm">
                     LinkedIn Sync Status
                   </span>
                 </div>
-                <p className="text-sm text-slate-700 font-medium leading-relaxed">
-                  All <strong className="text-slate-900 font-bold">28 certifications</strong> listed below are fully documented with authentic credential IDs verified against issuer records. As your LinkedIn profile reflects <strong className="text-slate-900 font-bold">29 licenses & certifications</strong>, 1 remaining credential is queued for verification synchronization.
+                <p className="text-sm text-slate-800 font-medium leading-relaxed">
+                  All <strong className="text-slate-950 font-bold">28 certifications</strong> listed below are fully documented with authentic credential IDs verified against issuer records. As your LinkedIn profile reflects <strong className="text-slate-950 font-bold">29 licenses & certifications</strong>, 1 remaining credential is queued for verification synchronization.
                 </p>
               </div>
             </div>
