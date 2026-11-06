@@ -1228,22 +1228,27 @@ export default function App() {
               })}
             </div>
 
-            {/* LinkedIn 29th Cert Sync Callout - High Contrast & Maximum Readability */}
-            <div className="bg-white/95 backdrop-blur-3xl border-2 border-sky-100 shadow-xl shadow-slate-900/5 rounded-3xl p-5 sm:p-6 flex items-start gap-4 transition-all">
-              <div className="w-10 h-10 rounded-2xl bg-gradient-to-br from-sky-500 to-blue-600 text-white flex items-center justify-center shrink-0 shadow-md shadow-sky-500/25 mt-0.5">
+            {/* LinkedIn 29th Cert Sync Callout - Luminous Frosted Glass with Maximum Legibility */}
+            <div className="relative overflow-hidden bg-white/70 backdrop-blur-2xl border border-white/90 shadow-[0_8px_32px_0_rgba(15,23,42,0.08)] rounded-3xl p-5 sm:p-6 flex items-start gap-4 transition-all">
+              {/* Subtle glass reflection highlight overlay */}
+              <div className="absolute inset-0 bg-gradient-to-br from-white/70 via-white/30 to-sky-50/20 pointer-events-none rounded-3xl"></div>
+              <div className="absolute inset-[1px] rounded-[23px] pointer-events-none border border-white/70"></div>
+
+              <div className="relative z-10 w-10 h-10 rounded-2xl bg-gradient-to-br from-sky-500 to-blue-600 text-white flex items-center justify-center shrink-0 shadow-lg shadow-sky-500/25 mt-0.5">
                 <Info className="w-5 h-5 stroke-[2.5]" />
               </div>
-              <div className="space-y-1.5 flex-1">
+
+              <div className="relative z-10 space-y-1.5 flex-1">
                 <div className="flex flex-wrap items-center gap-2">
                   <h4 className="text-base sm:text-lg font-black text-slate-900 tracking-tight">
                     28 Credentials Cataloged with Verified IDs
                   </h4>
-                  <span className="text-[11px] font-extrabold px-3 py-0.5 rounded-full bg-sky-100 text-sky-800 border border-sky-200">
+                  <span className="text-[11px] font-extrabold px-3 py-0.5 rounded-full bg-sky-500/10 text-sky-900 border border-sky-300/60 backdrop-blur-md">
                     LinkedIn Sync Status
                   </span>
                 </div>
-                <p className="text-sm text-slate-700 font-medium leading-relaxed">
-                  All <strong className="text-slate-900 font-bold">28 certifications</strong> listed below are fully documented with authentic credential IDs verified against issuer records. As your LinkedIn profile reflects <strong className="text-slate-900 font-bold">29 licenses & certifications</strong>, 1 remaining credential is queued for verification synchronization.
+                <p className="text-sm text-slate-800 font-semibold leading-relaxed">
+                  All <strong className="text-slate-950 font-black underline decoration-sky-400 decoration-2 underline-offset-2">28 certifications</strong> listed below are fully documented with authentic credential IDs verified against issuer records. As your LinkedIn profile reflects <strong className="text-slate-950 font-black underline decoration-sky-400 decoration-2 underline-offset-2">29 licenses & certifications</strong>, 1 remaining credential is queued for verification synchronization.
                 </p>
               </div>
             </div>
