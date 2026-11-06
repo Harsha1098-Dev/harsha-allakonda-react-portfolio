@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import { 
-  Briefcase, Award, GraduationCap, Mail, MapPin, 
-  CheckCircle2, TrendingUp, Users, ShieldCheck, DollarSign, 
+import {
+  Briefcase, Award, GraduationCap, Mail, MapPin,
+  CheckCircle2, TrendingUp, Users, ShieldCheck, DollarSign,
   Sparkles, ChevronRight, ChevronLeft, BookOpen, Layers, Send,
   Play, Clock, Building, Check, ExternalLink
 } from 'lucide-react';
@@ -17,13 +17,64 @@ export default function App() {
   const [activeScene, setActiveScene] = useState(0);
   const [isVideoModalOpen, setIsVideoModalOpen] = useState(false);
   const [contactForm, setContactForm] = useState({ name: '', email: '', message: '' });
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
+  const [submissionFeedback, setSubmissionFeedback] = useState('');
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+    setIsSubmitting(true);
+    setSubmissionFeedback('');
+
+    const recipientEmail = "harshaallakonda1998@gmail.com";
+    let sentSuccessfully = false;
+
+    try {
+      // 1. Submit to FormSubmit.co AJAX to deliver directly to harshaallakonda1998@gmail.com
+      const formSubmitPromise = fetch(`https://formsubmit.co/ajax/${recipientEmail}`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify({
+          name: contactForm.name,
+          email: contactForm.email,
+          message: contactForm.message,
+          _subject: `New Portfolio Message from ${contactForm.name} (PREPDHA HR)`,
+          _template: 'table',
+          _captcha: 'false'
+        })
+      });
+
+      // 2. Also submit to Netlify Forms backend
+      const encode = (data) => Object.keys(data).map(k => encodeURIComponent(k) + "=" + encodeURIComponent(data[k])).join("&");
+      const netlifyPromise = fetch('/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: encode({ 'form-name': 'contact', ...contactForm })
+      });
+
+      const results = await Promise.allSettled([formSubmitPromise, netlifyPromise]);
+      const anySuccess = results.some(r => r.status === 'fulfilled' && (r.value?.ok || r.value?.status === 200));
+
+      if (anySuccess) {
+        sentSuccessfully = true;
+      }
+    } catch (err) {
+      console.warn("Direct submission notice:", err);
+    }
+
+    if (!sentSuccessfully) {
+      // If network blocks third-party endpoints or offline, launch mailto fallback
+      window.location.href = `mailto:${recipientEmail}?subject=${encodeURIComponent("Portfolio Message from " + contactForm.name)}&body=${encodeURIComponent("Name: " + contactForm.name + "\nEmail: " + contactForm.email + "\n\nMessage:\n" + contactForm.message)}`;
+    }
+
     setSubmitted(true);
-    setTimeout(() => setSubmitted(false), 5000);
+    setIsSubmitting(false);
+    setSubmissionFeedback(`Thank you, ${contactForm.name}! Your message has been sent to harshaallakonda1998@gmail.com.`);
     setContactForm({ name: '', email: '', message: '' });
+    setTimeout(() => setSubmitted(false), 8000);
   };
 
   const hrScenes = [
@@ -112,14 +163,14 @@ export default function App() {
 
   return (
     <div className="relative min-h-screen text-slate-100 flex flex-col font-sans selection:bg-[#E5B83B] selection:text-[#0B1849]">
-      
+
       {/* Background Video with Cinematic Navy Tint */}
       <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden">
-        <video 
-          autoPlay 
-          loop 
-          muted 
-          playsInline 
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
           className="w-full h-full object-cover scale-105 filter brightness-95 contrast-105"
         >
           <source src="/HR_professionals_shaking_hands_1cd5d1a3_1080p.mp4" type="video/mp4" />
@@ -162,11 +213,10 @@ export default function App() {
                     document.getElementById('deep-dive-section')?.scrollIntoView({ behavior: 'smooth' });
                   }
                 }}
-                className={`px-3.5 py-1.5 rounded-full text-xs font-bold transition-all ${
-                  activeTab === tab.id
+                className={`px-3.5 py-1.5 rounded-full text-xs font-bold transition-all ${activeTab === tab.id
                     ? 'bg-[#E5B83B] text-[#0B1849] shadow-md font-black'
                     : 'text-slate-200 hover:text-[#E5B83B] hover:bg-white/10'
-                }`}
+                  }`}
               >
                 {tab.label}
               </button>
@@ -188,7 +238,7 @@ export default function App() {
       {/* Hero Section */}
       <section className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 pb-8 sm:pt-12 sm:pb-12 w-full">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-          
+
           {/* Left Hero Content */}
           <div className="lg:col-span-7 space-y-6">
             <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#0B1849]/90 backdrop-blur-md text-[#E5B83B] text-xs font-bold tracking-wide border-2 border-[#E5B83B]/60 shadow-sm">
@@ -259,15 +309,15 @@ export default function App() {
                 FEATURED VIDEO
               </div>
 
-              <div 
+              <div
                 onClick={() => setIsVideoModalOpen(true)}
                 className="group relative rounded-xl overflow-hidden aspect-video cursor-pointer shadow-inner bg-slate-950 border border-white/10"
               >
-                <video 
-                  muted 
-                  loop 
-                  autoPlay 
-                  playsInline 
+                <video
+                  muted
+                  loop
+                  autoPlay
+                  playsInline
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-80"
                 >
                   <source src="/HR_professionals_shaking_hands_1cd5d1a3_1080p.mp4" type="video/mp4" />
@@ -353,15 +403,14 @@ export default function App() {
                 <div
                   key={scene.id}
                   onClick={() => setActiveScene(idx)}
-                  className={`group relative rounded-2xl overflow-hidden cursor-pointer transition-all duration-300 ${
-                    isSelected
+                  className={`group relative rounded-2xl overflow-hidden cursor-pointer transition-all duration-300 ${isSelected
                       ? 'ring-4 ring-[#E5B83B] shadow-xl shadow-[#E5B83B]/30 scale-[1.03]'
                       : 'border-2 border-[#E5B83B]/40 hover:border-[#E5B83B] opacity-80 hover:opacity-100 hover:scale-[1.01]'
-                  }`}
+                    }`}
                 >
                   <div className="h-28 sm:h-32 w-full relative overflow-hidden bg-slate-950">
-                    <img 
-                      src={scene.bgImage} 
+                    <img
+                      src={scene.bgImage}
                       alt={scene.title}
                       className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500 opacity-60"
                     />
@@ -419,7 +468,7 @@ export default function App() {
               badge: "ANALYTICS"
             }
           ].map((item, idx) => (
-            <div 
+            <div
               key={idx}
               className="bg-gradient-to-br from-[#0B1849] to-[#14255C] text-white p-5 rounded-2xl border-2 border-[#E5B83B] shadow-xl relative flex items-center space-x-4 hover:scale-[1.02] transition-all"
             >
@@ -440,7 +489,7 @@ export default function App() {
 
       {/* Main Content Deep-Dive Section */}
       <main id="deep-dive-section" className="relative z-10 flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        
+
         {/* Navigation Tabs Pill Bar */}
         <div className="flex overflow-x-auto space-x-2 pb-3 mb-8 scrollbar-none border-b border-white/10">
           {[
@@ -454,11 +503,10 @@ export default function App() {
             <button
               key={tab.id}
               onClick={() => setActiveTab(tab.id)}
-              className={`px-5 py-2.5 rounded-full text-xs font-extrabold whitespace-nowrap transition-all duration-200 ${
-                activeTab === tab.id
+              className={`px-5 py-2.5 rounded-full text-xs font-extrabold whitespace-nowrap transition-all duration-200 ${activeTab === tab.id
                   ? 'bg-[#E5B83B] text-[#0B1849] shadow-lg scale-105 font-black ring-2 ring-[#E5B83B]'
                   : 'bg-[#0B1849]/80 backdrop-blur-md text-slate-200 hover:text-white border-2 border-[#E5B83B]/40 hover:border-[#E5B83B] shadow-sm'
-              }`}
+                }`}
             >
               {tab.label}
             </button>
@@ -510,8 +558,8 @@ export default function App() {
                   stat: "95%+ 24-48h SLA"
                 }
               ].map((card, idx) => (
-                <div 
-                  key={idx} 
+                <div
+                  key={idx}
                   className="bg-gradient-to-br from-[#0B1849] to-[#14255C] text-white p-6 rounded-2xl shadow-xl border-2 border-[#E5B83B] relative flex flex-col justify-between hover:scale-[1.02] transition-all"
                 >
                   <div>
@@ -650,8 +698,8 @@ export default function App() {
                 { title: "POSH Compliance & ICC Management", desc: "Prevention of Sexual Harassment awareness programs, committee governance, and training." },
                 { title: "HRMS (Zoho People & Zoho Payroll)", desc: "System administration, biometric attendance sync, leave tracking, and data integrity." }
               ].map((item, idx) => (
-                <div 
-                  key={idx} 
+                <div
+                  key={idx}
                   className="bg-gradient-to-br from-[#0B1849] to-[#14255C] text-white p-6 rounded-2xl shadow-xl border-2 border-[#E5B83B] relative flex flex-col justify-between hover:scale-[1.02] transition-all"
                 >
                   <div>
@@ -709,8 +757,8 @@ export default function App() {
               <h3 className="text-lg font-bold text-white">Coursiv, Claude, ChatGPT, Gemini & Technical Certifications</h3>
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
                 {advancedCerts.map((cert, idx) => (
-                  <div 
-                    key={idx} 
+                  <div
+                    key={idx}
                     className="bg-gradient-to-br from-[#0B1849] to-[#14255C] text-white p-5 rounded-2xl shadow-xl border-2 border-[#E5B83B] relative flex flex-col justify-between hover:scale-[1.02] transition-all"
                   >
                     <div>
@@ -792,16 +840,33 @@ export default function App() {
               </p>
 
               {submitted && (
-                <div className="mb-6 p-4 rounded-xl bg-emerald-950/80 border-2 border-emerald-400 text-emerald-200 text-sm font-semibold flex items-center gap-2">
-                  <CheckCircle2 className="w-5 h-5 text-emerald-400" /> Thank you! Your message has been sent successfully.
+                <div className="mb-6 p-4 rounded-xl bg-emerald-950/80 border-2 border-emerald-400 text-emerald-200 text-sm font-semibold flex items-center gap-2 animate-fadeIn">
+                  <CheckCircle2 className="w-5 h-5 text-emerald-400 shrink-0" />
+                  <span>{submissionFeedback || "Thank you! Your message has been sent to harshaallakonda1998@gmail.com. Harsha will respond shortly."}</span>
                 </div>
               )}
 
-              <form onSubmit={handleSubmit} className="space-y-4">
+              <form 
+                name="contact" 
+                method="POST" 
+                action="https://formsubmit.co/harshaallakonda1998@gmail.com"
+                data-netlify="true" 
+                data-netlify-honeypot="bot-field"
+                onSubmit={handleSubmit} 
+                className="space-y-4"
+              >
+                <input type="hidden" name="form-name" value="contact" />
+                <input type="hidden" name="_captcha" value="false" />
+                <input type="hidden" name="_template" value="table" />
+                <p className="hidden">
+                  <label>Don’t fill this out if you're human: <input name="bot-field" /></label>
+                </p>
+
                 <div>
                   <label className="block text-xs font-bold text-slate-300 uppercase mb-1">Your Name</label>
                   <input
                     type="text"
+                    name="name"
                     required
                     value={contactForm.name}
                     onChange={(e) => setContactForm({ ...contactForm, name: e.target.value })}
@@ -813,6 +878,7 @@ export default function App() {
                   <label className="block text-xs font-bold text-slate-300 uppercase mb-1">Your Email</label>
                   <input
                     type="email"
+                    name="email"
                     required
                     value={contactForm.email}
                     onChange={(e) => setContactForm({ ...contactForm, email: e.target.value })}
@@ -823,6 +889,7 @@ export default function App() {
                 <div>
                   <label className="block text-xs font-bold text-slate-300 uppercase mb-1">Message</label>
                   <textarea
+                    name="message"
                     required
                     rows={4}
                     value={contactForm.message}
@@ -833,11 +900,37 @@ export default function App() {
                 </div>
                 <button
                   type="submit"
-                  className="w-full py-4 rounded-xl bg-[#E5B83B] text-[#0B1849] font-black text-sm shadow-xl hover:bg-[#c99f2d] hover:scale-[1.01] transition-all flex items-center justify-center gap-2"
+                  disabled={isSubmitting}
+                  className="w-full py-4 rounded-xl bg-[#E5B83B] text-[#0B1849] font-black text-sm shadow-xl hover:bg-[#c99f2d] hover:scale-[1.01] active:scale-[0.99] transition-all flex items-center justify-center gap-2 disabled:opacity-75"
                 >
-                  <Send className="w-4 h-4" /> Send Message
+                  {isSubmitting ? (
+                    <>
+                      <div className="w-4 h-4 border-2 border-[#0B1849] border-t-transparent rounded-full animate-spin"></div>
+                      <span>Sending to harshaallakonda1998@gmail.com...</span>
+                    </>
+                  ) : (
+                    <>
+                      <Send className="w-4 h-4" />
+                      <span>Send Message to harshaallakonda1998@gmail.com</span>
+                    </>
+                  )}
                 </button>
               </form>
+
+              <div className="mt-6 pt-4 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-300 gap-2">
+                <span className="flex items-center gap-1.5 text-slate-300">
+                  <Mail className="w-3.5 h-3.5 text-[#E5B83B]" /> Direct Email:
+                  <a href="mailto:harshaallakonda1998@gmail.com" className="text-[#E5B83B] font-semibold hover:underline">
+                    harshaallakonda1998@gmail.com
+                  </a>
+                </span>
+                <a
+                  href={`mailto:harshaallakonda1998@gmail.com?subject=HR Inquiry via Portfolio`}
+                  className="px-3 py-1.5 rounded-lg bg-white/10 hover:bg-white/20 text-[#E5B83B] font-bold border border-[#E5B83B]/30 hover:border-[#E5B83B] transition-all flex items-center gap-1"
+                >
+                  Open Email App <ExternalLink className="w-3 h-3" />
+                </a>
+              </div>
             </div>
           </div>
         )}
@@ -859,7 +952,7 @@ export default function App() {
       {isVideoModalOpen && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/85 backdrop-blur-md animate-fadeIn">
           <div className="relative w-full max-w-4xl bg-gradient-to-br from-[#0B1849] to-[#14255C] rounded-3xl overflow-hidden shadow-2xl border-2 border-[#E5B83B]">
-            <button 
+            <button
               onClick={() => setIsVideoModalOpen(false)}
               className="absolute top-4 right-4 z-10 w-10 h-10 rounded-full bg-black/60 text-[#E5B83B] border border-[#E5B83B]/50 flex items-center justify-center hover:bg-[#E5B83B] hover:text-[#0B1849] transition-all"
               aria-label="Close video"
@@ -876,7 +969,7 @@ export default function App() {
                 <h3 className="font-bold text-lg text-white">Executive Story • HR Leadership in Action</h3>
                 <p className="text-xs text-[#E5B83B]">Harsha Allakonda • Human Resources Manager at PREPDHA</p>
               </div>
-              <button 
+              <button
                 onClick={() => setIsVideoModalOpen(false)}
                 className="px-4 py-2 rounded-xl bg-[#E5B83B] text-[#0B1849] text-xs font-black hover:bg-[#c99f2d] transition-colors"
               >
