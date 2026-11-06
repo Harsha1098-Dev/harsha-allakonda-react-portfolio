@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { 
-  Briefcase, Award, GraduationCap, Mail, MapPin, 
-  CheckCircle2, TrendingUp, Users, ShieldCheck, DollarSign, 
+import {
+  Briefcase, Award, GraduationCap, Mail, MapPin,
+  CheckCircle2, TrendingUp, Users, ShieldCheck, DollarSign,
   Sparkles, ChevronRight, ChevronLeft, BookOpen, Layers, Send,
   Play, Clock, Building, Check, ExternalLink, ArrowRight, Star
 } from 'lucide-react';
@@ -272,14 +272,14 @@ export default function App() {
 
   return (
     <div className="relative min-h-screen bg-[#F8FAFC] text-slate-800 flex flex-col font-sans selection:bg-sky-500 selection:text-white">
-      
+
       {/* SchoolStacker Luminous Full-Bleed Video Background */}
       <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden">
-        <video 
-          autoPlay 
-          loop 
-          muted 
-          playsInline 
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
           className="w-full h-full object-cover scale-105 filter brightness-[0.98] contrast-[1.02]"
         >
           <source src="/HR_professionals_shaking_hands_1cd5d1a3_1080p.mp4" type="video/mp4" />
@@ -292,7 +292,7 @@ export default function App() {
       {/* Floating Glassmorphic Pill Header (Exact SchoolStacker Style) */}
       <header className="sticky top-4 z-40 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
         <div className="bg-white/90 backdrop-blur-xl border border-white/80 shadow-lg shadow-slate-900/5 rounded-2xl md:rounded-full px-5 py-3 flex items-center justify-between transition-all">
-          <div 
+          <div
             onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
             className="flex items-center space-x-3 cursor-pointer"
           >
@@ -320,11 +320,10 @@ export default function App() {
               <button
                 key={tab.id}
                 onClick={() => scrollToSection(tab.id)}
-                className={`px-3.5 py-1.5 rounded-full text-xs font-bold transition-all ${
-                  activeSection === tab.id
+                className={`px-3.5 py-1.5 rounded-full text-xs font-bold transition-all ${activeSection === tab.id
                     ? 'bg-slate-900 text-white shadow-sm'
                     : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100/80'
-                }`}
+                  }`}
               >
                 {tab.label}
               </button>
@@ -346,7 +345,7 @@ export default function App() {
       {/* Hero Section (Matching SchoolStacker Layout) */}
       <section id="overview" className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 pb-8 sm:pt-14 sm:pb-12 w-full">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-          
+
           {/* Left Hero Content */}
           <div className="lg:col-span-7 space-y-6">
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/95 backdrop-blur-md text-sky-800 text-xs font-bold tracking-wide border border-sky-100 shadow-sm">
@@ -410,15 +409,15 @@ export default function App() {
           {/* Right Floating Video Card (SchoolStacker style) */}
           <div className="lg:col-span-5">
             <div className="bg-white/90 backdrop-blur-2xl rounded-3xl p-5 border border-white/90 shadow-2xl shadow-slate-900/10 space-y-4">
-              <div 
+              <div
                 onClick={() => setIsVideoModalOpen(true)}
                 className="group relative rounded-2xl overflow-hidden aspect-video cursor-pointer shadow-inner bg-slate-950"
               >
-                <video 
-                  muted 
-                  loop 
-                  autoPlay 
-                  playsInline 
+                <video
+                  muted
+                  loop
+                  autoPlay
+                  playsInline
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-85"
                 >
                   <source src="/HR_professionals_shaking_hands_1cd5d1a3_1080p.mp4" type="video/mp4" />
@@ -428,7 +427,7 @@ export default function App() {
                   <div className="w-14 h-14 rounded-full bg-white/90 backdrop-blur-md flex items-center justify-center text-sky-600 shadow-2xl group-hover:scale-110 group-hover:bg-sky-500 group-hover:text-white transition-all">
                     <Play className="w-6 h-6 fill-current ml-1" />
                   </div>
-                  <span className="text-white text-xs font-bold mt-2 drop-shadow-md">Play Story Video</span>
+                  <span className="text-white text-xs font-bold mt-2 drop-shadow-md">HR World</span>
                 </div>
                 <div className="absolute top-3 left-3 bg-white/90 backdrop-blur-md px-2.5 py-1 rounded-full text-[10px] font-bold text-slate-800 shadow-sm">
                   HD 1080p
@@ -504,15 +503,14 @@ export default function App() {
                 <div
                   key={scene.id}
                   onClick={() => setActiveScene(idx)}
-                  className={`group relative rounded-2xl overflow-hidden cursor-pointer transition-all duration-300 ${
-                    isSelected
+                  className={`group relative rounded-2xl overflow-hidden cursor-pointer transition-all duration-300 ${isSelected
                       ? 'ring-4 ring-sky-500 shadow-xl shadow-sky-500/25 scale-[1.03]'
                       : 'border border-slate-200 hover:border-sky-300 opacity-80 hover:opacity-100 hover:scale-[1.01]'
-                  }`}
+                    }`}
                 >
                   <div className="h-28 sm:h-32 w-full relative overflow-hidden bg-slate-900">
-                    <img 
-                      src={scene.bgImage} 
+                    <img
+                      src={scene.bgImage}
                       alt={scene.title}
                       className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500 opacity-70"
                     />
@@ -584,7 +582,7 @@ export default function App() {
 
       {/* Main Content Sections */}
       <main className="relative z-10 flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-20">
-        
+
         {/* SECTION: DEDICATED PORTALS & MODULES (Matching SchoolStacker's "One Platform. Dedicated Portals.") */}
         <section id="portals" className="space-y-8 scroll-mt-28">
           <div className="text-center max-w-3xl mx-auto space-y-3">
@@ -603,7 +601,7 @@ export default function App() {
             {hrPortals.map((portal, idx) => {
               const IconComp = portal.icon;
               return (
-                <div 
+                <div
                   key={idx}
                   className="bg-white/95 backdrop-blur-xl p-7 rounded-3xl border border-slate-200/80 shadow-xl shadow-slate-900/5 hover:shadow-2xl hover:border-sky-300 hover:scale-[1.01] transition-all flex flex-col justify-between"
                 >
@@ -729,7 +727,7 @@ export default function App() {
             </h3>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {skillDeckCerts.map((cert, idx) => (
-                <div 
+                <div
                   key={idx}
                   className="bg-white/95 backdrop-blur-xl p-6 rounded-3xl border border-sky-200 shadow-xl shadow-sky-500/5 relative hover:border-sky-500 transition-all"
                 >
@@ -752,7 +750,7 @@ export default function App() {
             <h3 className="text-lg font-bold text-slate-900">Coursiv AI Mastery & Technical Certifications</h3>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
               {advancedCerts.map((cert, idx) => (
-                <div 
+                <div
                   key={idx}
                   className="bg-white/95 backdrop-blur-xl p-5 rounded-2xl border border-slate-200/80 shadow-sm hover:shadow-md hover:border-sky-400 transition-all flex flex-col justify-between"
                 >
@@ -832,13 +830,13 @@ export default function App() {
               </div>
             )}
 
-            <form 
-              name="contact" 
-              method="POST" 
+            <form
+              name="contact"
+              method="POST"
               action="https://formsubmit.co/harshaallakonda1998@gmail.com"
-              data-netlify="true" 
+              data-netlify="true"
               data-netlify-honeypot="bot-field"
-              onSubmit={handleSubmit} 
+              onSubmit={handleSubmit}
               className="space-y-4"
             >
               <input type="hidden" name="form-name" value="contact" />
@@ -944,7 +942,7 @@ export default function App() {
       {isVideoModalOpen && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/80 backdrop-blur-md animate-fadeIn">
           <div className="relative w-full max-w-4xl bg-slate-900 rounded-3xl overflow-hidden shadow-2xl border border-white/20">
-            <button 
+            <button
               onClick={() => setIsVideoModalOpen(false)}
               className="absolute top-4 right-4 z-10 w-10 h-10 rounded-full bg-black/60 text-white flex items-center justify-center hover:bg-black transition-all"
               aria-label="Close video"
@@ -961,7 +959,7 @@ export default function App() {
                 <h3 className="font-bold text-lg text-white">Executive Story • HR Leadership in Action</h3>
                 <p className="text-xs text-slate-400">Harsha Allakonda • Human Resources Manager at PREPDHA</p>
               </div>
-              <button 
+              <button
                 onClick={() => setIsVideoModalOpen(false)}
                 className="px-4 py-2 rounded-xl bg-sky-500 hover:bg-sky-600 text-white text-xs font-bold transition-colors"
               >
