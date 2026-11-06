@@ -321,8 +321,8 @@ export default function App() {
                 key={tab.id}
                 onClick={() => scrollToSection(tab.id)}
                 className={`px-3.5 py-1.5 rounded-full text-xs font-bold transition-all ${activeSection === tab.id
-                    ? 'bg-slate-900 text-white shadow-sm'
-                    : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100/80'
+                  ? 'bg-slate-900 text-white shadow-sm'
+                  : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100/80'
                   }`}
               >
                 {tab.label}
@@ -504,8 +504,8 @@ export default function App() {
                   key={scene.id}
                   onClick={() => setActiveScene(idx)}
                   className={`group relative rounded-2xl overflow-hidden cursor-pointer transition-all duration-300 ${isSelected
-                      ? 'ring-4 ring-sky-500 shadow-xl shadow-sky-500/25 scale-[1.03]'
-                      : 'border border-slate-200 hover:border-sky-300 opacity-80 hover:opacity-100 hover:scale-[1.01]'
+                    ? 'ring-4 ring-sky-500 shadow-xl shadow-sky-500/25 scale-[1.03]'
+                    : 'border border-slate-200 hover:border-sky-300 opacity-80 hover:opacity-100 hover:scale-[1.01]'
                     }`}
                 >
                   <div className="h-28 sm:h-32 w-full relative overflow-hidden bg-slate-900">
@@ -812,9 +812,6 @@ export default function App() {
         <section id="contact" className="space-y-8 scroll-mt-28 max-w-3xl mx-auto">
           <div className="bg-white/95 backdrop-blur-2xl rounded-3xl p-8 sm:p-10 shadow-2xl shadow-slate-900/10 border border-slate-200/80 relative">
             <div className="text-center max-w-xl mx-auto mb-8 space-y-2">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-sky-50 text-sky-700 text-xs font-bold border border-sky-100">
-                <Mail className="w-3.5 h-3.5" /> Direct Communication
-              </div>
               <h2 className="text-3xl font-black text-slate-900 tracking-tight">
                 Ready to Elevate Your HR Operations?
               </h2>
@@ -890,7 +887,7 @@ export default function App() {
                 {isSubmitting ? (
                   <>
                     <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
-                    <span>Sending to harshaallakonda1998@gmail.com...</span>
+                    <span>Sending...</span>
                   </>
                 ) : (
                   <>
@@ -900,21 +897,6 @@ export default function App() {
                 )}
               </button>
             </form>
-
-            <div className="mt-6 pt-5 border-t border-slate-100 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-500 gap-2">
-              <span className="flex items-center gap-1.5">
-                <Mail className="w-3.5 h-3.5 text-sky-600" /> Direct:
-                <a href="mailto:harshaallakonda1998@gmail.com" className="text-sky-600 font-semibold hover:underline">
-                  harshaallakonda1998@gmail.com
-                </a>
-              </span>
-              <a
-                href={`mailto:harshaallakonda1998@gmail.com?subject=HR Inquiry via Portfolio`}
-                className="px-3 py-1.5 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold transition-all flex items-center gap-1"
-              >
-                Open in Email Client <ExternalLink className="w-3 h-3" />
-              </a>
-            </div>
           </div>
         </section>
 
