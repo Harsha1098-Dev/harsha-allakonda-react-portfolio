@@ -111,37 +111,37 @@ export default function App() {
   ];
 
   return (
-    <div className="relative min-h-screen text-slate-800 flex flex-col font-sans selection:bg-sky-500 selection:text-white">
+    <div className="relative min-h-screen text-slate-100 flex flex-col font-sans selection:bg-[#E5B83B] selection:text-[#0B1849]">
       
-      {/* SchoolStacker Luminous Full-Bleed Video Background */}
+      {/* Background Video with Cinematic Navy Tint */}
       <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden">
         <video 
           autoPlay 
           loop 
           muted 
           playsInline 
-          className="w-full h-full object-cover scale-105 filter brightness-[0.98] contrast-[1.02]"
+          className="w-full h-full object-cover scale-105 filter brightness-95 contrast-105"
         >
           <source src="/HR_professionals_shaking_hands_1cd5d1a3_1080p.mp4" type="video/mp4" />
         </video>
-        {/* Frosted luminous white wash for readable text & cards */}
-        <div className="absolute inset-0 bg-gradient-to-b from-white/80 via-white/45 to-[#F4F6F0]/95"></div>
-        <div className="absolute inset-0 bg-sky-50/20 backdrop-blur-[0.5px]"></div>
+        {/* Soft atmospheric overlay letting the handshake video shine behind the navy & gold cards */}
+        <div className="absolute inset-0 bg-gradient-to-b from-[#0B1849]/75 via-[#0B1849]/45 to-[#0B1849]/85"></div>
+        <div className="absolute inset-0 bg-navy-900/30 backdrop-blur-[0.5px]"></div>
       </div>
 
-      {/* Floating Glassmorphic Pill Header (SchoolStacker Style) */}
+      {/* Floating Glassmorphic Navy & Gold Pill Header */}
       <header className="sticky top-4 z-40 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
-        <div className="bg-white/85 backdrop-blur-xl border border-white/80 shadow-lg shadow-slate-900/5 rounded-2xl md:rounded-full px-5 py-3 flex items-center justify-between transition-all">
+        <div className="bg-[#0B1849]/90 backdrop-blur-xl border-2 border-[#E5B83B]/70 shadow-2xl rounded-2xl md:rounded-full px-5 py-3 flex items-center justify-between transition-all">
           <div className="flex items-center space-x-3">
-            <div className="w-10 h-10 rounded-xl bg-[#0B1849] flex items-center justify-center text-[#E5B83B] font-black text-lg shadow-md ring-2 ring-sky-500/20">
+            <div className="w-10 h-10 rounded-xl bg-[#E5B83B] flex items-center justify-center text-[#0B1849] font-black text-lg shadow-md ring-2 ring-[#E5B83B]/50">
               HA
             </div>
             <div>
               <div className="flex items-center gap-2">
-                <span className="font-extrabold text-slate-900 tracking-tight text-base sm:text-lg">Harsha Allakonda</span>
-                <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-sky-100 text-sky-800 border border-sky-200">PREPDHA</span>
+                <span className="font-extrabold text-white tracking-tight text-base sm:text-lg">Harsha Allakonda</span>
+                <span className="text-[10px] font-black px-2 py-0.5 rounded-full bg-[#E5B83B] text-[#0B1849]">PREPDHA</span>
               </div>
-              <p className="text-[11px] text-slate-500 font-medium hidden sm:block">Human Resources Manager & HR Tech Specialist</p>
+              <p className="text-[11px] text-[#E5B83B] font-medium hidden sm:block">Human Resources Manager & HR Tech Specialist</p>
             </div>
           </div>
 
@@ -164,8 +164,8 @@ export default function App() {
                 }}
                 className={`px-3.5 py-1.5 rounded-full text-xs font-bold transition-all ${
                   activeTab === tab.id
-                    ? 'bg-[#0B1849] text-white shadow-md'
-                    : 'text-slate-600 hover:text-slate-900 hover:bg-white/60'
+                    ? 'bg-[#E5B83B] text-[#0B1849] shadow-md font-black'
+                    : 'text-slate-200 hover:text-[#E5B83B] hover:bg-white/10'
                 }`}
               >
                 {tab.label}
@@ -176,7 +176,7 @@ export default function App() {
           <div className="flex items-center space-x-2">
             <a
               href="mailto:harshaallakonda1998@gmail.com"
-              className="px-4 py-2 rounded-full bg-gradient-to-r from-sky-500 to-blue-600 text-white font-bold text-xs shadow-md shadow-sky-500/20 hover:shadow-lg hover:shadow-sky-500/30 transition-all flex items-center gap-1.5"
+              className="px-4 py-2 rounded-full bg-[#E5B83B] text-[#0B1849] font-black text-xs shadow-md shadow-[#E5B83B]/20 hover:bg-[#c99f2d] transition-all flex items-center gap-1.5"
             >
               <Mail className="w-3.5 h-3.5" />
               <span>Get in Touch</span>
@@ -191,19 +191,19 @@ export default function App() {
           
           {/* Left Hero Content */}
           <div className="lg:col-span-7 space-y-6">
-            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/90 backdrop-blur-md text-sky-800 text-xs font-bold tracking-wide border border-white/80 shadow-sm">
-              <Sparkles className="w-4 h-4 text-sky-600" />
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#0B1849]/90 backdrop-blur-md text-[#E5B83B] text-xs font-bold tracking-wide border-2 border-[#E5B83B]/60 shadow-sm">
+              <Sparkles className="w-4 h-4 text-[#E5B83B]" />
               <span>PREPDHA Executive HR Leadership</span>
             </div>
 
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight text-slate-900 leading-[1.12]">
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight text-white leading-[1.12]">
               Empowering People, <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-sky-600 via-blue-700 to-[#0B1849]">
+              <span className="text-[#E5B83B]">
                 Streamlining HR Operations.
               </span>
             </h1>
 
-            <p className="text-base sm:text-lg text-slate-600 max-w-xl font-normal leading-relaxed">
+            <p className="text-base sm:text-lg text-slate-200 max-w-xl font-normal leading-relaxed">
               Results-driven Human Resources Manager at PREPDHA with extensive expertise in end-to-end Talent Acquisition, Zoho HRMS Payroll, Statutory Compliance, POSH, and AI-driven automation workflows.
             </p>
 
@@ -213,7 +213,7 @@ export default function App() {
                   setActiveTab('experience');
                   document.getElementById('deep-dive-section')?.scrollIntoView({ behavior: 'smooth' });
                 }}
-                className="px-6 py-3.5 rounded-full bg-gradient-to-r from-sky-500 to-blue-600 text-white font-bold text-sm shadow-xl shadow-sky-500/25 hover:shadow-sky-500/40 hover:scale-[1.02] active:scale-[0.98] transition-all flex items-center gap-2"
+                className="px-6 py-3.5 rounded-full bg-[#E5B83B] text-[#0B1849] font-black text-sm shadow-xl shadow-[#E5B83B]/25 hover:bg-[#c99f2d] hover:scale-[1.02] active:scale-[0.98] transition-all flex items-center gap-2"
               >
                 <span>Explore Experience</span>
                 <ChevronRight className="w-4 h-4" />
@@ -221,43 +221,47 @@ export default function App() {
 
               <button
                 onClick={() => setIsVideoModalOpen(true)}
-                className="px-5 py-3.5 rounded-full bg-white/85 backdrop-blur-md text-slate-800 border border-white/90 font-bold text-sm shadow-md hover:bg-white hover:shadow-lg transition-all flex items-center gap-2.5"
+                className="px-5 py-3.5 rounded-full bg-[#0B1849]/80 backdrop-blur-md text-white border-2 border-[#E5B83B]/70 font-bold text-sm shadow-md hover:bg-[#0B1849] hover:border-[#E5B83B] transition-all flex items-center gap-2.5"
               >
-                <div className="w-6 h-6 rounded-full bg-sky-500/10 flex items-center justify-center text-sky-600">
+                <div className="w-6 h-6 rounded-full bg-[#E5B83B]/20 flex items-center justify-center text-[#E5B83B]">
                   <Play className="w-3.5 h-3.5 fill-current ml-0.5" />
                 </div>
                 <span>Watch Story Video</span>
               </button>
             </div>
 
-            {/* Backed & Certified By Bar (SchoolStacker style) */}
-            <div className="pt-4 border-t border-slate-200/60">
-              <p className="text-[11px] font-extrabold uppercase tracking-widest text-slate-400 mb-2.5">
+            {/* Backed & Certified By Bar */}
+            <div className="pt-4 border-t border-white/10">
+              <p className="text-[11px] font-extrabold uppercase tracking-widest text-[#E5B83B] mb-2.5">
                 Certified & Verified Credentials
               </p>
               <div className="flex flex-wrap items-center gap-2 sm:gap-3">
-                <span className="px-3 py-1 rounded-lg bg-white/80 backdrop-blur-sm border border-slate-200/80 text-xs font-bold text-slate-700 shadow-sm flex items-center gap-1.5">
-                  <Award className="w-3.5 h-3.5 text-sky-600" /> SkillDeck Bangalore
+                <span className="px-3 py-1 rounded-lg bg-[#0B1849]/90 backdrop-blur-sm border-2 border-[#E5B83B]/60 text-xs font-bold text-white shadow-sm flex items-center gap-1.5">
+                  <Award className="w-3.5 h-3.5 text-[#E5B83B]" /> SkillDeck Bangalore
                 </span>
-                <span className="px-3 py-1 rounded-lg bg-white/80 backdrop-blur-sm border border-slate-200/80 text-xs font-bold text-slate-700 shadow-sm flex items-center gap-1.5">
-                  <ShieldCheck className="w-3.5 h-3.5 text-emerald-600" /> POSH Trainer Certified
+                <span className="px-3 py-1 rounded-lg bg-[#0B1849]/90 backdrop-blur-sm border-2 border-[#E5B83B]/60 text-xs font-bold text-white shadow-sm flex items-center gap-1.5">
+                  <ShieldCheck className="w-3.5 h-3.5 text-[#E5B83B]" /> POSH Trainer Certified
                 </span>
-                <span className="px-3 py-1 rounded-lg bg-white/80 backdrop-blur-sm border border-slate-200/80 text-xs font-bold text-slate-700 shadow-sm flex items-center gap-1.5">
-                  <Layers className="w-3.5 h-3.5 text-blue-600" /> Zoho HRMS Specialist
+                <span className="px-3 py-1 rounded-lg bg-[#0B1849]/90 backdrop-blur-sm border-2 border-[#E5B83B]/60 text-xs font-bold text-white shadow-sm flex items-center gap-1.5">
+                  <Layers className="w-3.5 h-3.5 text-[#E5B83B]" /> Zoho HRMS Specialist
                 </span>
-                <span className="px-3 py-1 rounded-lg bg-white/80 backdrop-blur-sm border border-slate-200/80 text-xs font-bold text-slate-700 shadow-sm flex items-center gap-1.5">
-                  <Sparkles className="w-3.5 h-3.5 text-amber-500" /> Coursiv AI Master
+                <span className="px-3 py-1 rounded-lg bg-[#0B1849]/90 backdrop-blur-sm border-2 border-[#E5B83B]/60 text-xs font-bold text-white shadow-sm flex items-center gap-1.5">
+                  <Sparkles className="w-3.5 h-3.5 text-[#E5B83B]" /> Coursiv AI Master
                 </span>
               </div>
             </div>
           </div>
 
-          {/* Right Floating Video Card (SchoolStacker style) */}
+          {/* Right Floating Video Card - Matching Navy & Gold Style */}
           <div className="lg:col-span-5">
-            <div className="bg-white/85 backdrop-blur-2xl rounded-3xl p-5 border border-white/90 shadow-2xl shadow-slate-900/10 space-y-4">
+            <div className="bg-gradient-to-br from-[#0B1849] to-[#14255C] text-white p-5 rounded-2xl border-2 border-[#E5B83B] shadow-2xl relative space-y-4">
+              <div className="absolute top-3 right-3 bg-[#E5B83B] text-[#0B1849] text-[10px] font-black px-2 py-0.5 rounded z-10">
+                FEATURED VIDEO
+              </div>
+
               <div 
                 onClick={() => setIsVideoModalOpen(true)}
-                className="group relative rounded-2xl overflow-hidden aspect-video cursor-pointer shadow-inner bg-slate-900"
+                className="group relative rounded-xl overflow-hidden aspect-video cursor-pointer shadow-inner bg-slate-950 border border-white/10"
               >
                 <video 
                   muted 
@@ -270,51 +274,51 @@ export default function App() {
                 </video>
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent"></div>
                 <div className="absolute inset-0 flex flex-col items-center justify-center">
-                  <div className="w-14 h-14 rounded-full bg-white/90 backdrop-blur-md flex items-center justify-center text-sky-600 shadow-2xl group-hover:scale-110 group-hover:bg-sky-500 group-hover:text-white transition-all">
+                  <div className="w-14 h-14 rounded-full bg-[#E5B83B] flex items-center justify-center text-[#0B1849] shadow-2xl group-hover:scale-110 group-hover:bg-white transition-all">
                     <Play className="w-6 h-6 fill-current ml-1" />
                   </div>
                   <span className="text-white text-xs font-bold mt-2 drop-shadow-md">Play Story Video</span>
                 </div>
-                <div className="absolute top-3 left-3 bg-white/80 backdrop-blur-md px-2.5 py-1 rounded-full text-[10px] font-bold text-slate-800">
+                <div className="absolute top-3 left-3 bg-[#0B1849]/90 border border-[#E5B83B]/50 px-2.5 py-1 rounded-full text-[10px] font-bold text-[#E5B83B]">
                   HD 1080p
                 </div>
               </div>
 
               <div className="flex items-center justify-between pt-1">
                 <div className="flex items-center gap-2">
-                  <span className="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse"></span>
-                  <span className="text-xs font-bold text-slate-800">Active Ecosystem</span>
+                  <span className="w-2.5 h-2.5 rounded-full bg-[#E5B83B] animate-pulse"></span>
+                  <span className="text-xs font-bold text-white">Active Ecosystem</span>
                 </div>
-                <span className="text-[11px] font-semibold text-slate-500">PREPDHA HR Management</span>
+                <span className="text-[11px] font-semibold text-[#E5B83B]">PREPDHA HR Management</span>
               </div>
 
-              {/* Quick Highlight Stats Strip */}
-              <div className="grid grid-cols-3 gap-2 pt-2 border-t border-slate-100">
-                <div className="bg-slate-50/80 p-2.5 rounded-xl text-center border border-slate-100">
-                  <div className="text-base font-black text-slate-900">30+</div>
-                  <div className="text-[10px] text-slate-500 leading-tight">Hires / Mo</div>
+              {/* Highlight Stats Strip */}
+              <div className="grid grid-cols-3 gap-2 pt-2 border-t border-white/10">
+                <div className="bg-[#0B1849]/80 p-2.5 rounded-xl text-center border border-[#E5B83B]/30">
+                  <div className="text-base font-black text-[#E5B83B]">30+</div>
+                  <div className="text-[10px] text-slate-300 leading-tight">Hires / Mo</div>
                 </div>
-                <div className="bg-slate-50/80 p-2.5 rounded-xl text-center border border-slate-100">
-                  <div className="text-base font-black text-emerald-700">35%</div>
-                  <div className="text-[10px] text-slate-500 leading-tight">Attendance Acc.</div>
+                <div className="bg-[#0B1849]/80 p-2.5 rounded-xl text-center border border-[#E5B83B]/30">
+                  <div className="text-base font-black text-[#E5B83B]">35%</div>
+                  <div className="text-[10px] text-slate-300 leading-tight">Attendance Acc.</div>
                 </div>
-                <div className="bg-slate-50/80 p-2.5 rounded-xl text-center border border-slate-100">
-                  <div className="text-base font-black text-sky-700">100%</div>
-                  <div className="text-[10px] text-slate-500 leading-tight">Compliance</div>
+                <div className="bg-[#0B1849]/80 p-2.5 rounded-xl text-center border border-[#E5B83B]/30">
+                  <div className="text-base font-black text-[#E5B83B]">100%</div>
+                  <div className="text-[10px] text-slate-300 leading-tight">Compliance</div>
                 </div>
               </div>
             </div>
           </div>
         </div>
 
-        {/* SchoolStacker Interactive Scene Stacker Dock */}
-        <div className="mt-10 bg-white/85 backdrop-blur-2xl rounded-3xl p-6 sm:p-8 shadow-2xl shadow-slate-900/10 border border-white/90">
-          <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6 pb-6 border-b border-slate-200/70">
+        {/* Interactive Scene Stacker Dock - Navy & Gold Style */}
+        <div className="mt-10 bg-gradient-to-br from-[#0B1849]/95 to-[#14255C]/95 backdrop-blur-2xl text-white rounded-3xl p-6 sm:p-8 shadow-2xl border-2 border-[#E5B83B]">
+          <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6 pb-6 border-b border-white/10">
             <div>
-              <div className="flex items-center gap-2 text-xs font-bold text-sky-600 uppercase tracking-wider mb-1">
-                <Sparkles className="w-4 h-4" /> Interactive Operations Showcase
+              <div className="flex items-center gap-2 text-xs font-bold text-[#E5B83B] uppercase tracking-wider mb-1">
+                <Sparkles className="w-4 h-4 text-[#E5B83B]" /> Interactive Operations Showcase
               </div>
-              <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900">
+              <h2 className="text-2xl sm:text-3xl font-extrabold text-white">
                 Experience HR Leadership in 6 Core Scenes
               </h2>
             </div>
@@ -323,17 +327,17 @@ export default function App() {
             <div className="flex items-center space-x-3 self-end lg:self-center">
               <button
                 onClick={() => setActiveScene((prev) => (prev > 0 ? prev - 1 : hrScenes.length - 1))}
-                className="w-10 h-10 rounded-full bg-white border border-slate-200 flex items-center justify-center text-slate-700 shadow-sm hover:bg-slate-50 hover:border-sky-500 hover:text-sky-600 transition-all"
+                className="w-10 h-10 rounded-full bg-[#0B1849] border-2 border-[#E5B83B] flex items-center justify-center text-[#E5B83B] shadow-sm hover:bg-[#E5B83B] hover:text-[#0B1849] transition-all"
                 aria-label="Previous scene"
               >
                 <ChevronLeft className="w-5 h-5" />
               </button>
-              <div className="text-xs font-bold text-slate-700 px-3 py-1.5 rounded-full bg-slate-100 font-mono">
+              <div className="text-xs font-bold text-[#0B1849] px-3.5 py-1.5 rounded-full bg-[#E5B83B] font-mono">
                 {activeScene + 1} / {hrScenes.length}
               </div>
               <button
                 onClick={() => setActiveScene((prev) => (prev < hrScenes.length - 1 ? prev + 1 : 0))}
-                className="w-10 h-10 rounded-full bg-white border border-slate-200 flex items-center justify-center text-slate-700 shadow-sm hover:bg-slate-50 hover:border-sky-500 hover:text-sky-600 transition-all"
+                className="w-10 h-10 rounded-full bg-[#0B1849] border-2 border-[#E5B83B] flex items-center justify-center text-[#E5B83B] shadow-sm hover:bg-[#E5B83B] hover:text-[#0B1849] transition-all"
                 aria-label="Next scene"
               >
                 <ChevronRight className="w-5 h-5" />
@@ -351,18 +355,18 @@ export default function App() {
                   onClick={() => setActiveScene(idx)}
                   className={`group relative rounded-2xl overflow-hidden cursor-pointer transition-all duration-300 ${
                     isSelected
-                      ? 'ring-4 ring-sky-500 shadow-xl shadow-sky-500/20 scale-[1.03]'
-                      : 'border border-slate-200 hover:border-sky-300 opacity-80 hover:opacity-100 hover:scale-[1.01]'
+                      ? 'ring-4 ring-[#E5B83B] shadow-xl shadow-[#E5B83B]/30 scale-[1.03]'
+                      : 'border-2 border-[#E5B83B]/40 hover:border-[#E5B83B] opacity-80 hover:opacity-100 hover:scale-[1.01]'
                   }`}
                 >
-                  <div className="h-28 sm:h-32 w-full relative overflow-hidden bg-slate-900">
+                  <div className="h-28 sm:h-32 w-full relative overflow-hidden bg-slate-950">
                     <img 
                       src={scene.bgImage} 
                       alt={scene.title}
-                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500 opacity-70"
+                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500 opacity-60"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/40 to-transparent"></div>
-                    <div className="absolute top-2 left-2 bg-slate-900/80 backdrop-blur-sm text-white font-mono text-[10px] font-bold px-2 py-0.5 rounded">
+                    <div className="absolute top-2 left-2 bg-[#E5B83B] text-[#0B1849] font-mono text-[10px] font-black px-2 py-0.5 rounded">
                       {scene.num}
                     </div>
                     <div className="absolute bottom-2 left-2 right-2 text-white">
@@ -375,55 +379,62 @@ export default function App() {
           </div>
 
           {/* Active Scene Detail Banner */}
-          <div className="mt-6 bg-gradient-to-r from-slate-900 via-[#0B1849] to-slate-900 text-white rounded-2xl p-6 shadow-xl flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+          <div className="mt-6 bg-[#0B1849] text-white rounded-2xl p-6 shadow-xl border-2 border-[#E5B83B] flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
             <div className="space-y-1 max-w-2xl">
               <div className="flex items-center gap-2">
-                <span className="text-xs font-mono font-bold px-2 py-0.5 rounded bg-sky-500 text-white">
+                <span className="text-xs font-mono font-bold px-2 py-0.5 rounded bg-[#E5B83B] text-[#0B1849]">
                   SCENE {hrScenes[activeScene].num}
                 </span>
-                <span className="text-xs text-sky-300 font-semibold">{hrScenes[activeScene].tagline}</span>
+                <span className="text-xs text-[#E5B83B] font-semibold">{hrScenes[activeScene].tagline}</span>
               </div>
               <h3 className="text-lg sm:text-xl font-bold text-white">{hrScenes[activeScene].title}</h3>
               <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">{hrScenes[activeScene].desc}</p>
             </div>
             <div className="shrink-0 bg-white/10 backdrop-blur-md px-5 py-3 rounded-xl border border-white/20 text-center">
-              <div className="text-xs text-sky-300 font-bold uppercase">Proven Impact</div>
-              <div className="text-lg font-black text-[#E5B83B]">{hrScenes[activeScene].metric}</div>
+              <div className="text-xs text-[#E5B83B] font-bold uppercase">Proven Impact</div>
+              <div className="text-lg font-black text-white">{hrScenes[activeScene].metric}</div>
             </div>
           </div>
         </div>
 
-        {/* 3 Floating Bottom Feature Cards (Matching SchoolStacker bottom pills) */}
+        {/* 3 Bottom Feature Cards - Signature Navy & Gold View */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-6">
-          <div className="bg-white/85 backdrop-blur-xl p-5 rounded-2xl border border-white/80 shadow-lg shadow-slate-900/5 flex items-center space-x-4">
-            <div className="w-12 h-12 rounded-xl bg-emerald-500/10 flex items-center justify-center text-emerald-600 shrink-0">
-              <ShieldCheck className="w-6 h-6" />
+          {[
+            {
+              icon: ShieldCheck,
+              title: "Secure & Reliable",
+              desc: "Enterprise Labour Laws & POSH Governance",
+              badge: "COMPLIANCE"
+            },
+            {
+              icon: Layers,
+              title: "Cloud HRIS Ecosystem",
+              desc: "Zoho People & Zoho Payroll System Admin",
+              badge: "ZOHO SUITE"
+            },
+            {
+              icon: TrendingUp,
+              title: "Real-Time People Analytics",
+              desc: "35% Discrepancy Cut & 95%+ Grievance SLA",
+              badge: "ANALYTICS"
+            }
+          ].map((item, idx) => (
+            <div 
+              key={idx}
+              className="bg-gradient-to-br from-[#0B1849] to-[#14255C] text-white p-5 rounded-2xl border-2 border-[#E5B83B] shadow-xl relative flex items-center space-x-4 hover:scale-[1.02] transition-all"
+            >
+              <div className="absolute top-2.5 right-2.5 bg-[#E5B83B] text-[#0B1849] text-[9px] font-black px-1.5 py-0.5 rounded">
+                {item.badge}
+              </div>
+              <div className="w-12 h-12 rounded-xl bg-[#E5B83B]/20 flex items-center justify-center text-[#E5B83B] shrink-0 border border-[#E5B83B]/30">
+                <item.icon className="w-6 h-6" />
+              </div>
+              <div>
+                <h4 className="font-extrabold text-sm text-white pr-14">{item.title}</h4>
+                <p className="text-xs text-slate-300 font-medium mt-0.5">{item.desc}</p>
+              </div>
             </div>
-            <div>
-              <h4 className="font-extrabold text-sm text-slate-900">Secure & Reliable</h4>
-              <p className="text-xs text-slate-500 font-medium">Enterprise Labour Laws & POSH Governance</p>
-            </div>
-          </div>
-
-          <div className="bg-white/85 backdrop-blur-xl p-5 rounded-2xl border border-white/80 shadow-lg shadow-slate-900/5 flex items-center space-x-4">
-            <div className="w-12 h-12 rounded-xl bg-sky-500/10 flex items-center justify-center text-sky-600 shrink-0">
-              <Layers className="w-6 h-6" />
-            </div>
-            <div>
-              <h4 className="font-extrabold text-sm text-slate-900">Cloud HRIS Ecosystem</h4>
-              <p className="text-xs text-slate-500 font-medium">Zoho People & Zoho Payroll System Admin</p>
-            </div>
-          </div>
-
-          <div className="bg-white/85 backdrop-blur-xl p-5 rounded-2xl border border-white/80 shadow-lg shadow-slate-900/5 flex items-center space-x-4">
-            <div className="w-12 h-12 rounded-xl bg-blue-500/10 flex items-center justify-center text-blue-600 shrink-0">
-              <TrendingUp className="w-6 h-6" />
-            </div>
-            <div>
-              <h4 className="font-extrabold text-sm text-slate-900">Real-Time People Analytics</h4>
-              <p className="text-xs text-slate-500 font-medium">35% Discrepancy Cut & 95%+ Grievance SLA</p>
-            </div>
-          </div>
+          ))}
         </div>
       </section>
 
@@ -431,7 +442,7 @@ export default function App() {
       <main id="deep-dive-section" className="relative z-10 flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8">
         
         {/* Navigation Tabs Pill Bar */}
-        <div className="flex overflow-x-auto space-x-2 pb-3 mb-8 scrollbar-none border-b border-slate-200/70">
+        <div className="flex overflow-x-auto space-x-2 pb-3 mb-8 scrollbar-none border-b border-white/10">
           {[
             { id: 'overview', label: 'Overview' },
             { id: 'experience', label: 'Professional Experience' },
@@ -445,8 +456,8 @@ export default function App() {
               onClick={() => setActiveTab(tab.id)}
               className={`px-5 py-2.5 rounded-full text-xs font-extrabold whitespace-nowrap transition-all duration-200 ${
                 activeTab === tab.id
-                  ? 'bg-[#0B1849] text-white shadow-lg scale-105'
-                  : 'bg-white/80 backdrop-blur-sm text-slate-600 hover:bg-white hover:text-slate-900 border border-slate-200/80 shadow-sm'
+                  ? 'bg-[#E5B83B] text-[#0B1849] shadow-lg scale-105 font-black ring-2 ring-[#E5B83B]'
+                  : 'bg-[#0B1849]/80 backdrop-blur-md text-slate-200 hover:text-white border-2 border-[#E5B83B]/40 hover:border-[#E5B83B] shadow-sm'
               }`}
             >
               {tab.label}
@@ -457,45 +468,71 @@ export default function App() {
         {/* TAB 1: OVERVIEW */}
         {activeTab === 'overview' && (
           <div className="space-y-8 animate-fadeIn">
-            <div className="bg-white/90 backdrop-blur-xl rounded-3xl p-8 shadow-xl shadow-slate-900/5 border border-white/80">
-              <h2 className="text-2xl font-bold text-slate-900 mb-4 flex items-center gap-3">
-                <BookOpen className="w-6 h-6 text-sky-600" /> Executive Summary
+            {/* Overview Summary Card - Signature Navy & Gold */}
+            <div className="bg-gradient-to-br from-[#0B1849] to-[#14255C] text-white rounded-2xl p-8 shadow-xl border-2 border-[#E5B83B] relative">
+              <div className="absolute top-4 right-4 bg-[#E5B83B] text-[#0B1849] text-[10px] font-black px-2 py-0.5 rounded">
+                EXECUTIVE SUMMARY
+              </div>
+              <h2 className="text-2xl font-bold text-white mb-1 flex items-center gap-3">
+                <BookOpen className="w-6 h-6 text-[#E5B83B]" /> Professional Summary
               </h2>
-              <p className="text-slate-700 leading-relaxed text-base">
-                I am a results-driven Human Resources professional currently serving as Human Resources Manager at <strong>PREPDHA</strong>, with extensive experience in HR Operations, Talent Acquisition, Payroll Management, Employee Relations, and Statutory Compliance. I specialize in streamlining HR processes, building scalable recruitment pipelines, strengthening employee engagement, and ensuring rigorous compliance with organizational policies and applicable labour regulations.
-              </p>
+              <p className="text-[#E5B83B] text-xs font-semibold mb-4">PREPDHA Human Resources Leadership</p>
+              <div className="border-t border-white/10 pt-4 text-slate-200 leading-relaxed text-sm">
+                I am a results-driven Human Resources professional currently serving as Human Resources Manager at <strong className="text-white">PREPDHA</strong>, with extensive experience in HR Operations, Talent Acquisition, Payroll Management, Employee Relations, and Statutory Compliance. I specialize in streamlining HR processes, building scalable recruitment pipelines, strengthening employee engagement, and ensuring rigorous compliance with organizational policies and applicable labour regulations.
+              </div>
             </div>
 
+            {/* 3 Pillar Cards - Signature Navy & Gold */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              <div className="bg-white/90 backdrop-blur-xl rounded-3xl p-6 shadow-lg shadow-slate-900/5 border border-white/80 border-t-4 border-t-sky-600">
-                <div className="w-12 h-12 rounded-2xl bg-sky-50 flex items-center justify-center text-sky-600 mb-4 font-bold">
-                  <Users className="w-6 h-6" />
+              {[
+                {
+                  badge: "RECRUITMENT",
+                  icon: Users,
+                  title: "Talent Acquisition",
+                  subtitle: "End-to-End Pipeline & Hiring",
+                  desc: "End-to-end recruitment pipelines, 150+ annual interviews, 92% candidate satisfaction, and 88% offer acceptance rate.",
+                  stat: "30+ Recruits / Mo"
+                },
+                {
+                  badge: "HRIS & PAYROLL",
+                  icon: DollarSign,
+                  title: "Payroll & HRIS",
+                  subtitle: "Zoho People & Zoho Payroll Admin",
+                  desc: "Zoho People & Zoho Payroll administration, 100% payroll accuracy, statutory filings, and 35% biometric attendance improvement.",
+                  stat: "100% Compliance"
+                },
+                {
+                  badge: "GOVERNANCE",
+                  icon: ShieldCheck,
+                  title: "Compliance & POSH",
+                  subtitle: "Statutory Filings & ICC Oversight",
+                  desc: "POSH compliance, ICC leadership, labour laws audit, disciplinary frameworks, and grievance resolution within 24-48 hours.",
+                  stat: "95%+ 24-48h SLA"
+                }
+              ].map((card, idx) => (
+                <div 
+                  key={idx} 
+                  className="bg-gradient-to-br from-[#0B1849] to-[#14255C] text-white p-6 rounded-2xl shadow-xl border-2 border-[#E5B83B] relative flex flex-col justify-between hover:scale-[1.02] transition-all"
+                >
+                  <div>
+                    <div className="absolute top-4 right-4 bg-[#E5B83B] text-[#0B1849] text-[10px] font-black px-2 py-0.5 rounded">
+                      {card.badge}
+                    </div>
+                    <div className="w-10 h-10 rounded-xl bg-[#E5B83B]/20 flex items-center justify-center text-[#E5B83B] mb-3 border border-[#E5B83B]/40">
+                      <card.icon className="w-5 h-5" />
+                    </div>
+                    <h3 className="font-bold text-lg text-white mb-1 pr-16">{card.title}</h3>
+                    <p className="text-xs text-[#E5B83B] font-semibold mb-3">{card.subtitle}</p>
+                    <div className="border-t border-white/10 pt-3 text-xs text-slate-200 leading-relaxed">
+                      {card.desc}
+                    </div>
+                  </div>
+                  <div className="mt-4 pt-3 border-t border-white/10 flex items-center justify-between text-xs">
+                    <span className="text-slate-400">Impact Metric:</span>
+                    <span className="font-mono font-bold text-[#E5B83B]">{card.stat}</span>
+                  </div>
                 </div>
-                <h3 className="text-lg font-bold text-slate-900 mb-2">Talent Acquisition</h3>
-                <p className="text-sm text-slate-600 leading-relaxed">
-                  End-to-end recruitment pipelines, 150+ annual interviews, 92% candidate satisfaction, and 88% offer acceptance rate.
-                </p>
-              </div>
-
-              <div className="bg-white/90 backdrop-blur-xl rounded-3xl p-6 shadow-lg shadow-slate-900/5 border border-white/80 border-t-4 border-t-emerald-600">
-                <div className="w-12 h-12 rounded-2xl bg-emerald-50 flex items-center justify-center text-emerald-600 mb-4 font-bold">
-                  <DollarSign className="w-6 h-6" />
-                </div>
-                <h3 className="text-lg font-bold text-slate-900 mb-2">Payroll & HRIS</h3>
-                <p className="text-sm text-slate-600 leading-relaxed">
-                  Zoho People & Zoho Payroll administration, 100% payroll accuracy, statutory filings, and 35% biometric attendance improvement.
-                </p>
-              </div>
-
-              <div className="bg-white/90 backdrop-blur-xl rounded-3xl p-6 shadow-lg shadow-slate-900/5 border border-white/80 border-t-4 border-t-amber-500">
-                <div className="w-12 h-12 rounded-2xl bg-amber-50 flex items-center justify-center text-amber-600 mb-4 font-bold">
-                  <ShieldCheck className="w-6 h-6" />
-                </div>
-                <h3 className="text-lg font-bold text-slate-900 mb-2">Compliance & POSH</h3>
-                <p className="text-sm text-slate-600 leading-relaxed">
-                  POSH compliance, ICC leadership, labour laws audit, disciplinary frameworks, and grievance resolution within 24-48 hours.
-                </p>
-              </div>
+              ))}
             </div>
           </div>
         )}
@@ -503,78 +540,88 @@ export default function App() {
         {/* TAB 2: EXPERIENCE */}
         {activeTab === 'experience' && (
           <div className="space-y-8 animate-fadeIn">
-            <h2 className="text-2xl font-bold text-slate-900 flex items-center gap-3">
-              <Briefcase className="w-6 h-6 text-sky-600" /> Professional Experience
-            </h2>
+            <div>
+              <h2 className="text-2xl font-bold text-white flex items-center gap-3 mb-1">
+                <Briefcase className="w-6 h-6 text-[#E5B83B]" /> Professional Experience
+              </h2>
+              <p className="text-xs text-[#E5B83B] font-semibold">Track record in leadership, talent strategy, and HR operations</p>
+            </div>
 
             <div className="space-y-6">
-              {/* Prepdha */}
-              <div className="bg-white/90 backdrop-blur-xl rounded-3xl p-8 shadow-xl shadow-slate-900/5 border border-white/80 relative overflow-hidden">
-                <div className="absolute top-0 left-0 w-2.5 h-full bg-gradient-to-b from-sky-500 to-[#0B1849]"></div>
-                <div className="flex flex-col md:flex-row md:items-center justify-between mb-4">
+              {/* Prepdha Card - Signature Navy & Gold */}
+              <div className="bg-gradient-to-br from-[#0B1849] to-[#14255C] text-white p-8 rounded-2xl shadow-xl border-2 border-[#E5B83B] relative">
+                <div className="absolute top-4 right-4 bg-[#E5B83B] text-[#0B1849] text-[10px] font-black px-2.5 py-1 rounded">
+                  CURRENT ROLE
+                </div>
+                <div className="flex flex-col md:flex-row md:items-center justify-between mb-3">
                   <div>
-                    <span className="text-xs font-extrabold px-3 py-1 rounded-full bg-sky-100 text-sky-800">Current Role</span>
-                    <h3 className="text-2xl font-black text-slate-900 mt-2">Human Resources Manager</h3>
-                    <p className="text-sky-700 font-bold text-sm">Prepdha • Hyderabad, Telangana, India</p>
+                    <h3 className="text-2xl font-black text-white pr-28">Human Resources Manager</h3>
+                    <p className="text-xs text-[#E5B83B] font-semibold mt-1">Prepdha • Hyderabad, Telangana, India</p>
                   </div>
-                  <div className="mt-2 md:mt-0 text-xs font-bold px-4 py-2 rounded-xl bg-slate-100 text-slate-700 font-mono">
+                  <div className="mt-2 md:mt-0 text-xs font-mono font-bold px-3 py-1.5 rounded-lg bg-[#E5B83B]/20 text-[#E5B83B] border border-[#E5B83B]/40">
                     February 2026 - Present (10 months)
                   </div>
                 </div>
-                <ul className="space-y-3 mt-5 text-slate-700 text-sm">
-                  {[
-                    "Lead end-to-end HR operations, including employee onboarding, attendance management, payroll processing, employee records, and HR administration using Zoho People and Zoho Payroll.",
-                    "Oversee attendance and biometric systems for 20+ employees, reducing attendance discrepancies by 35% and improving payroll accuracy.",
-                    "Process monthly payroll with 100% accuracy while ensuring timely salary disbursement and statutory and tax compliance.",
-                    "Resolve 95%+ employee grievances within 24-48 hours, strengthening employee satisfaction and workplace engagement.",
-                    "Spearhead end-to-end talent acquisition, successfully recruiting 30+ professionals within a single month through LinkedIn and other recruitment channels.",
-                    "Facilitate 150+ interviews annually, partnering with leadership and hiring stakeholders to achieve 92% candidate satisfaction and an 88% offer acceptance rate.",
-                    "Build strategic talent pipelines for critical positions, reducing urgent hiring turnaround time by 50%.",
-                    "Develop and implement HR policies, employee handbooks, and workplace procedures, ensuring 100% compliance with applicable labour regulations.",
-                    "Drive POSH compliance initiatives, conduct employee awareness programs, and oversee Internal Complaints Committee (ICC) activities.",
-                    "Conduct HR compliance audits and ensure adherence to labour laws, statutory filings, and organizational policies.",
-                    "Strengthen workplace governance through POSH, Disciplinary, and Employee Welfare Committees.",
-                    "Oversee administrative operations, vendor management, and facility support, reducing operational costs by 15%."
-                  ].map((bullet, idx) => (
-                    <li key={idx} className="flex items-start gap-3">
-                      <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0 mt-1" />
-                      <span className="leading-relaxed">{bullet}</span>
-                    </li>
-                  ))}
-                </ul>
+                <div className="border-t border-white/10 pt-4 mt-3">
+                  <ul className="space-y-3 text-slate-200 text-sm">
+                    {[
+                      "Lead end-to-end HR operations, including employee onboarding, attendance management, payroll processing, employee records, and HR administration using Zoho People and Zoho Payroll.",
+                      "Oversee attendance and biometric systems for 20+ employees, reducing attendance discrepancies by 35% and improving payroll accuracy.",
+                      "Process monthly payroll with 100% accuracy while ensuring timely salary disbursement and statutory and tax compliance.",
+                      "Resolve 95%+ employee grievances within 24-48 hours, strengthening employee satisfaction and workplace engagement.",
+                      "Spearhead end-to-end talent acquisition, successfully recruiting 30+ professionals within a single month through LinkedIn and other recruitment channels.",
+                      "Facilitate 150+ interviews annually, partnering with leadership and hiring stakeholders to achieve 92% candidate satisfaction and an 88% offer acceptance rate.",
+                      "Build strategic talent pipelines for critical positions, reducing urgent hiring turnaround time by 50%.",
+                      "Develop and implement HR policies, employee handbooks, and workplace procedures, ensuring 100% compliance with applicable labour regulations.",
+                      "Drive POSH compliance initiatives, conduct employee awareness programs, and oversee Internal Complaints Committee (ICC) activities.",
+                      "Conduct HR compliance audits and ensure adherence to labour laws, statutory filings, and organizational policies.",
+                      "Strengthen workplace governance through POSH, Disciplinary, and Employee Welfare Committees.",
+                      "Oversee administrative operations, vendor management, and facility support, reducing operational costs by 15%."
+                    ].map((bullet, idx) => (
+                      <li key={idx} className="flex items-start gap-3">
+                        <CheckCircle2 className="w-4 h-4 text-[#E5B83B] shrink-0 mt-1" />
+                        <span className="leading-relaxed">{bullet}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
               </div>
 
-              {/* Genesys Info X */}
-              <div className="bg-white/90 backdrop-blur-xl rounded-3xl p-8 shadow-xl shadow-slate-900/5 border border-white/80 relative overflow-hidden">
-                <div className="absolute top-0 left-0 w-2.5 h-full bg-gradient-to-b from-slate-400 to-slate-700"></div>
-                <div className="flex flex-col md:flex-row md:items-center justify-between mb-4">
+              {/* Genesys Info X Card - Signature Navy & Gold */}
+              <div className="bg-gradient-to-br from-[#0B1849] to-[#14255C] text-white p-8 rounded-2xl shadow-xl border-2 border-[#E5B83B] relative">
+                <div className="absolute top-4 right-4 bg-[#E5B83B] text-[#0B1849] text-[10px] font-black px-2.5 py-1 rounded">
+                  EXECUTIVE
+                </div>
+                <div className="flex flex-col md:flex-row md:items-center justify-between mb-3">
                   <div>
-                    <h3 className="text-xl font-black text-slate-900">Human Resources Executive</h3>
-                    <p className="text-slate-600 font-bold text-sm">Genesys Info X • Hyderabad, Telangana, India</p>
+                    <h3 className="text-xl font-black text-white pr-28">Human Resources Executive</h3>
+                    <p className="text-xs text-[#E5B83B] font-semibold mt-1">Genesys Info X • Hyderabad, Telangana, India</p>
                   </div>
-                  <div className="mt-2 md:mt-0 text-xs font-bold px-4 py-2 rounded-xl bg-slate-100 text-slate-700 font-mono">
+                  <div className="mt-2 md:mt-0 text-xs font-mono font-bold px-3 py-1.5 rounded-lg bg-white/10 text-slate-300 border border-white/20">
                     September 2022 - January 2026 (3 years 5 months)
                   </div>
                 </div>
-                <ul className="space-y-3 mt-5 text-slate-700 text-sm">
-                  {[
-                    "Maintained and updated HRIS records for 20-50 employees, ensuring data accuracy, confidentiality, and compliance with organizational policies.",
-                    "Conducted 50 employee engagement surveys and analyzed feedback to identify opportunities for improving employee satisfaction and workplace experience.",
-                    "Researched HR best practices and industry trends, recommending improvements to organizational policies, procedures, and HR operations.",
-                    "Liaised with multiple departments to address employee queries, resolve workplace concerns, and strengthen internal HR communication.",
-                    "Supported performance management and evaluation processes for 50 employees, ensuring accurate documentation and timely review coordination.",
-                    "Conducted 30 employee exit interviews, analyzed feedback, and identified opportunities to improve employee retention and workplace practices.",
-                    "Identified operational bottlenecks and recommended process improvements to streamline HR workflows and enhance organizational efficiency.",
-                    "Facilitated employee relations and grievance resolution through effective communication, mediation, and conflict management.",
-                    "Administered employee leave requests in accordance with applicable employment regulations and organizational policies.",
-                    "Supported 50 professional development and training initiatives to enhance employee capabilities, strengthen workforce skills, and encourage career growth."
-                  ].map((bullet, idx) => (
-                    <li key={idx} className="flex items-start gap-3">
-                      <CheckCircle2 className="w-4 h-4 text-slate-500 shrink-0 mt-1" />
-                      <span className="leading-relaxed">{bullet}</span>
-                    </li>
-                  ))}
-                </ul>
+                <div className="border-t border-white/10 pt-4 mt-3">
+                  <ul className="space-y-3 text-slate-200 text-sm">
+                    {[
+                      "Maintained and updated HRIS records for 20-50 employees, ensuring data accuracy, confidentiality, and compliance with organizational policies.",
+                      "Conducted 50 employee engagement surveys and analyzed feedback to identify opportunities for improving employee satisfaction and workplace experience.",
+                      "Researched HR best practices and industry trends, recommending improvements to organizational policies, procedures, and HR operations.",
+                      "Liaised with multiple departments to address employee queries, resolve workplace concerns, and strengthen internal HR communication.",
+                      "Supported performance management and evaluation processes for 50 employees, ensuring accurate documentation and timely review coordination.",
+                      "Conducted 30 employee exit interviews, analyzed feedback, and identified opportunities to improve employee retention and workplace practices.",
+                      "Identified operational bottlenecks and recommended process improvements to streamline HR workflows and enhance organizational efficiency.",
+                      "Facilitated employee relations and grievance resolution through effective communication, mediation, and conflict management.",
+                      "Administered employee leave requests in accordance with applicable employment regulations and organizational policies.",
+                      "Supported 50 professional development and training initiatives to enhance employee capabilities, strengthen workforce skills, and encourage career growth."
+                    ].map((bullet, idx) => (
+                      <li key={idx} className="flex items-start gap-3">
+                        <CheckCircle2 className="w-4 h-4 text-[#E5B83B] shrink-0 mt-1" />
+                        <span className="leading-relaxed">{bullet}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
               </div>
             </div>
           </div>
@@ -583,10 +630,14 @@ export default function App() {
         {/* TAB 3: COMPETENCIES */}
         {activeTab === 'expertise' && (
           <div className="space-y-8 animate-fadeIn">
-            <h2 className="text-2xl font-bold text-slate-900 flex items-center gap-3">
-              <Layers className="w-6 h-6 text-sky-600" /> Core HR Expertise & Competencies
-            </h2>
+            <div>
+              <h2 className="text-2xl font-bold text-white flex items-center gap-3 mb-1">
+                <Layers className="w-6 h-6 text-[#E5B83B]" /> Core HR Expertise & Competencies
+              </h2>
+              <p className="text-xs text-[#E5B83B] font-semibold">Specialized domain competencies covering full enterprise human capital operations</p>
+            </div>
 
+            {/* 9 Competency Cards - Signature Navy & Gold View */}
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {[
                 { title: "HR Operations & Generalist Functions", desc: "End-to-end HR workflows, policy deployment, employee records, and administrative governance." },
@@ -599,12 +650,20 @@ export default function App() {
                 { title: "POSH Compliance & ICC Management", desc: "Prevention of Sexual Harassment awareness programs, committee governance, and training." },
                 { title: "HRMS (Zoho People & Zoho Payroll)", desc: "System administration, biometric attendance sync, leave tracking, and data integrity." }
               ].map((item, idx) => (
-                <div key={idx} className="bg-white/90 backdrop-blur-xl p-6 rounded-3xl shadow-lg shadow-slate-900/5 border border-white/80 hover:shadow-xl hover:scale-[1.01] transition-all">
-                  <div className="w-10 h-10 rounded-xl bg-sky-50 text-sky-700 flex items-center justify-center font-black mb-3">
-                    {idx + 1}
+                <div 
+                  key={idx} 
+                  className="bg-gradient-to-br from-[#0B1849] to-[#14255C] text-white p-6 rounded-2xl shadow-xl border-2 border-[#E5B83B] relative flex flex-col justify-between hover:scale-[1.02] transition-all"
+                >
+                  <div>
+                    <div className="absolute top-4 right-4 bg-[#E5B83B] text-[#0B1849] text-[10px] font-black px-2 py-0.5 rounded font-mono">
+                      CORE 0{idx + 1}
+                    </div>
+                    <h3 className="font-bold text-base text-white mb-1 pr-16">{item.title}</h3>
+                    <p className="text-xs text-[#E5B83B] font-semibold mb-3">Enterprise HR Capability</p>
+                    <div className="border-t border-white/10 pt-3 text-xs text-slate-200 leading-relaxed">
+                      {item.desc}
+                    </div>
                   </div>
-                  <h3 className="font-bold text-slate-900 text-base mb-1">{item.title}</h3>
-                  <p className="text-xs text-slate-600 leading-relaxed">{item.desc}</p>
                 </div>
               ))}
             </div>
@@ -615,22 +674,22 @@ export default function App() {
         {activeTab === 'certifications' && (
           <div className="space-y-8 animate-fadeIn">
             <div>
-              <h2 className="text-2xl font-bold text-slate-900 flex items-center gap-3 mb-2">
-                <Award className="w-6 h-6 text-sky-600" /> Licenses & Certifications
+              <h2 className="text-2xl font-bold text-white flex items-center gap-3 mb-1">
+                <Award className="w-6 h-6 text-[#E5B83B]" /> Licenses & Certifications
               </h2>
-              <p className="text-sm text-slate-600">
-                Verified professional credentials spanning HR operations, specialized training, and advanced AI workflow mastery.
+              <p className="text-xs text-[#E5B83B] font-semibold">
+                Verified professional credentials spanning HR operations, specialized training, and AI workflow mastery
               </p>
             </div>
 
-            {/* SkillDeck Top Featured */}
+            {/* SkillDeck Top Featured - Matching Screenshot */}
             <div className="space-y-4">
-              <h3 className="text-lg font-bold text-slate-900 flex items-center gap-2">
-                <Sparkles className="w-5 h-5 text-amber-500" /> SkillDeck Bangalore (Top Featured HR Certifications)
+              <h3 className="text-lg font-bold text-white flex items-center gap-2">
+                <Sparkles className="w-5 h-5 text-[#E5B83B]" /> SkillDeck Bangalore (Top Featured HR Certifications)
               </h3>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                 {skillDeckCerts.map((cert, idx) => (
-                  <div key={idx} className="bg-gradient-to-br from-[#0B1849] to-[#14255C] text-white p-6 rounded-3xl shadow-xl border-2 border-[#E5B83B] relative">
+                  <div key={idx} className="bg-gradient-to-br from-[#0B1849] to-[#14255C] text-white p-6 rounded-2xl shadow-xl border-2 border-[#E5B83B] relative">
                     <div className="absolute top-4 right-4 bg-[#E5B83B] text-[#0B1849] text-[10px] font-black px-2 py-0.5 rounded">
                       FEATURED
                     </div>
@@ -645,21 +704,25 @@ export default function App() {
               </div>
             </div>
 
-            {/* Other Advanced Certifications */}
+            {/* Other Advanced Certifications - All Styled in Exact Navy & Gold Card View */}
             <div className="space-y-4 pt-4">
-              <h3 className="text-lg font-bold text-slate-900">Coursiv, Claude, ChatGPT, Gemini & Technical Certifications</h3>
+              <h3 className="text-lg font-bold text-white">Coursiv, Claude, ChatGPT, Gemini & Technical Certifications</h3>
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
                 {advancedCerts.map((cert, idx) => (
-                  <div key={idx} className="bg-white/90 backdrop-blur-xl p-5 rounded-2xl shadow-sm border border-slate-200/80 flex flex-col justify-between hover:border-sky-500 transition-all">
+                  <div 
+                    key={idx} 
+                    className="bg-gradient-to-br from-[#0B1849] to-[#14255C] text-white p-5 rounded-2xl shadow-xl border-2 border-[#E5B83B] relative flex flex-col justify-between hover:scale-[1.02] transition-all"
+                  >
                     <div>
-                      <span className="text-[10px] font-bold px-2 py-0.5 rounded bg-slate-100 text-slate-700 uppercase tracking-wide">
+                      <div className="absolute top-4 right-4 bg-[#E5B83B] text-[#0B1849] text-[10px] font-black px-2 py-0.5 rounded uppercase">
                         {cert.category}
-                      </span>
-                      <h4 className="font-bold text-slate-800 text-sm mt-2">{cert.title}</h4>
+                      </div>
+                      <h4 className="font-bold text-sm text-white mb-1 pr-16">{cert.title}</h4>
+                      <p className="text-xs text-[#E5B83B] font-semibold mb-3">{cert.issuer}</p>
                     </div>
-                    <div className="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between text-xs text-slate-500">
-                      <span>{cert.issuer}</span>
-                      {cert.issued && <span className="font-semibold text-sky-700">{cert.issued}</span>}
+                    <div className="text-xs text-slate-300 space-y-1 pt-3 border-t border-white/10 flex items-center justify-between">
+                      <span>Credential Verified</span>
+                      {cert.issued && <span className="font-mono text-[11px] text-[#E5B83B]">Issued: {cert.issued}</span>}
                     </div>
                   </div>
                 ))}
@@ -671,28 +734,42 @@ export default function App() {
         {/* TAB 5: EDUCATION */}
         {activeTab === 'education' && (
           <div className="space-y-8 animate-fadeIn">
-            <h2 className="text-2xl font-bold text-slate-900 flex items-center gap-3">
-              <GraduationCap className="w-6 h-6 text-sky-600" /> Education & Academic Background
-            </h2>
+            <div>
+              <h2 className="text-2xl font-bold text-white flex items-center gap-3 mb-1">
+                <GraduationCap className="w-6 h-6 text-[#E5B83B]" /> Education & Academic Background
+              </h2>
+              <p className="text-xs text-[#E5B83B] font-semibold">Foundational engineering degree and academic coursework</p>
+            </div>
 
+            {/* Education Cards - Signature Navy & Gold View */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div className="bg-white/90 backdrop-blur-xl p-6 rounded-3xl shadow-lg shadow-slate-900/5 border border-white/80">
-                <span className="text-xs font-bold text-emerald-800 bg-emerald-100 px-3 py-1 rounded-full">Engineering Degree</span>
-                <h3 className="text-lg font-bold text-slate-900 mt-3">Bachelor of Technology - BTech</h3>
-                <p className="text-sm font-semibold text-slate-700">Metallurgical and Materials Engineering</p>
-                <p className="text-xs text-slate-500 mt-1">RGUKT Basar / Rajiv Gandhi University of Knowledge Technologies, RK Valley (RAC)</p>
-                <div className="mt-4 pt-3 border-t border-slate-100 text-xs font-semibold text-slate-600">
-                  June 2016 - September 2020
+              <div className="bg-gradient-to-br from-[#0B1849] to-[#14255C] text-white p-6 rounded-2xl shadow-xl border-2 border-[#E5B83B] relative">
+                <div className="absolute top-4 right-4 bg-[#E5B83B] text-[#0B1849] text-[10px] font-black px-2 py-0.5 rounded">
+                  ENGINEERING DEGREE
+                </div>
+                <h3 className="text-lg font-bold text-white mb-1 pr-24">Bachelor of Technology - BTech</h3>
+                <p className="text-xs text-[#E5B83B] font-semibold mb-3">Metallurgical and Materials Engineering</p>
+                <div className="border-t border-white/10 pt-3 text-slate-200 text-xs space-y-1.5">
+                  <p className="font-medium text-white">RGUKT Basar / Rajiv Gandhi University of Knowledge Technologies</p>
+                  <p className="text-slate-300">RK Valley (RAC)</p>
+                  <div className="font-mono text-[#E5B83B] pt-2 border-t border-white/10 text-xs">
+                    June 2016 - September 2020
+                  </div>
                 </div>
               </div>
 
-              <div className="bg-white/90 backdrop-blur-xl p-6 rounded-3xl shadow-lg shadow-slate-900/5 border border-white/80">
-                <span className="text-xs font-bold text-amber-900 bg-amber-100 px-3 py-1 rounded-full">Pre-University</span>
-                <h3 className="text-lg font-bold text-slate-900 mt-3">Pre University Course (PUC)</h3>
-                <p className="text-sm font-semibold text-slate-700">M.Bi.P.C (Mathematics, Biology, Physics, Chemistry)</p>
-                <p className="text-xs text-slate-500 mt-1">Rajiv Gandhi University of Knowledge Technologies, RK Valley (RAC)</p>
-                <div className="mt-4 pt-3 border-t border-slate-100 text-xs font-semibold text-slate-600">
-                  May 2016 - May 2016
+              <div className="bg-gradient-to-br from-[#0B1849] to-[#14255C] text-white p-6 rounded-2xl shadow-xl border-2 border-[#E5B83B] relative">
+                <div className="absolute top-4 right-4 bg-[#E5B83B] text-[#0B1849] text-[10px] font-black px-2 py-0.5 rounded">
+                  PRE-UNIVERSITY
+                </div>
+                <h3 className="text-lg font-bold text-white mb-1 pr-24">Pre University Course (PUC)</h3>
+                <p className="text-xs text-[#E5B83B] font-semibold mb-3">M.Bi.P.C (Mathematics, Biology, Physics, Chemistry)</p>
+                <div className="border-t border-white/10 pt-3 text-slate-200 text-xs space-y-1.5">
+                  <p className="font-medium text-white">Rajiv Gandhi University of Knowledge Technologies</p>
+                  <p className="text-slate-300">RK Valley (RAC)</p>
+                  <div className="font-mono text-[#E5B83B] pt-2 border-t border-white/10 text-xs">
+                    May 2016
+                  </div>
                 </div>
               </div>
             </div>
@@ -702,57 +779,61 @@ export default function App() {
         {/* TAB 6: CONTACT */}
         {activeTab === 'contact' && (
           <div className="space-y-8 animate-fadeIn max-w-3xl mx-auto">
-            <div className="bg-white/90 backdrop-blur-xl rounded-3xl p-8 shadow-xl shadow-slate-900/5 border border-white/80">
-              <h2 className="text-2xl font-bold text-slate-900 mb-2 flex items-center gap-3">
-                <Mail className="w-6 h-6 text-sky-600" /> Let's Connect
+            {/* Contact Card - Signature Navy & Gold View */}
+            <div className="bg-gradient-to-br from-[#0B1849] to-[#14255C] text-white rounded-2xl p-8 shadow-xl border-2 border-[#E5B83B] relative">
+              <div className="absolute top-4 right-4 bg-[#E5B83B] text-[#0B1849] text-[10px] font-black px-2 py-0.5 rounded">
+                LET'S CONNECT
+              </div>
+              <h2 className="text-2xl font-bold text-white mb-1 flex items-center gap-3">
+                <Mail className="w-6 h-6 text-[#E5B83B]" /> Get in Touch
               </h2>
-              <p className="text-sm text-slate-600 mb-6">
-                Open to discussions regarding HR strategy, talent management, HR operations, and people development. Send a message directly below!
+              <p className="text-xs text-[#E5B83B] font-semibold mb-6">
+                Open to discussions regarding HR strategy, talent management, HR operations, and organizational consulting.
               </p>
 
               {submitted && (
-                <div className="mb-6 p-4 rounded-xl bg-emerald-50 border border-emerald-200 text-emerald-800 text-sm font-semibold flex items-center gap-2">
-                  <CheckCircle2 className="w-5 h-5 text-emerald-600" /> Thank you! Your message has been sent successfully.
+                <div className="mb-6 p-4 rounded-xl bg-emerald-950/80 border-2 border-emerald-400 text-emerald-200 text-sm font-semibold flex items-center gap-2">
+                  <CheckCircle2 className="w-5 h-5 text-emerald-400" /> Thank you! Your message has been sent successfully.
                 </div>
               )}
 
               <form onSubmit={handleSubmit} className="space-y-4">
                 <div>
-                  <label className="block text-xs font-bold text-slate-700 uppercase mb-1">Your Name</label>
+                  <label className="block text-xs font-bold text-slate-300 uppercase mb-1">Your Name</label>
                   <input
                     type="text"
                     required
                     value={contactForm.name}
                     onChange={(e) => setContactForm({ ...contactForm, name: e.target.value })}
-                    className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:border-sky-500 text-sm bg-white/80"
+                    className="w-full px-4 py-3 rounded-xl border-2 border-[#E5B83B]/40 bg-[#0B1849]/90 text-white placeholder-slate-400 focus:outline-none focus:border-[#E5B83B] text-sm"
                     placeholder="Enter your name"
                   />
                 </div>
                 <div>
-                  <label className="block text-xs font-bold text-slate-700 uppercase mb-1">Your Email</label>
+                  <label className="block text-xs font-bold text-slate-300 uppercase mb-1">Your Email</label>
                   <input
                     type="email"
                     required
                     value={contactForm.email}
                     onChange={(e) => setContactForm({ ...contactForm, email: e.target.value })}
-                    className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:border-sky-500 text-sm bg-white/80"
+                    className="w-full px-4 py-3 rounded-xl border-2 border-[#E5B83B]/40 bg-[#0B1849]/90 text-white placeholder-slate-400 focus:outline-none focus:border-[#E5B83B] text-sm"
                     placeholder="name@example.com"
                   />
                 </div>
                 <div>
-                  <label className="block text-xs font-bold text-slate-700 uppercase mb-1">Message</label>
+                  <label className="block text-xs font-bold text-slate-300 uppercase mb-1">Message</label>
                   <textarea
                     required
                     rows={4}
                     value={contactForm.message}
                     onChange={(e) => setContactForm({ ...contactForm, message: e.target.value })}
-                    className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:border-sky-500 text-sm bg-white/80"
+                    className="w-full px-4 py-3 rounded-xl border-2 border-[#E5B83B]/40 bg-[#0B1849]/90 text-white placeholder-slate-400 focus:outline-none focus:border-[#E5B83B] text-sm"
                     placeholder="Discuss HR opportunities, consulting, or talent strategy..."
                   />
                 </div>
                 <button
                   type="submit"
-                  className="w-full py-4 rounded-xl bg-gradient-to-r from-sky-500 to-blue-600 text-white font-bold text-sm shadow-xl shadow-sky-500/25 hover:shadow-sky-500/40 hover:scale-[1.01] transition-all flex items-center justify-center gap-2"
+                  className="w-full py-4 rounded-xl bg-[#E5B83B] text-[#0B1849] font-black text-sm shadow-xl hover:bg-[#c99f2d] hover:scale-[1.01] transition-all flex items-center justify-center gap-2"
                 >
                   <Send className="w-4 h-4" /> Send Message
                 </button>
@@ -764,23 +845,23 @@ export default function App() {
       </main>
 
       {/* Footer */}
-      <footer className="relative z-10 bg-white/80 backdrop-blur-xl border-t border-slate-200/80 py-8 mt-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
+      <footer className="relative z-10 bg-[#0B1849]/90 backdrop-blur-xl border-t-2 border-[#E5B83B]/40 py-8 mt-16 text-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-300">
           <p>© {new Date().getFullYear()} Harsha Allakonda • Human Resources Manager at PREPDHA</p>
           <div className="flex items-center space-x-6">
-            <a href="mailto:harshaallakonda1998@gmail.com" className="hover:text-sky-600 transition-colors">Email</a>
-            <a href="https://www.linkedin.com/in/harsha-allakonda-8134813b4" target="_blank" rel="noreferrer" className="hover:text-sky-600 transition-colors">LinkedIn</a>
+            <a href="mailto:harshaallakonda1998@gmail.com" className="hover:text-[#E5B83B] transition-colors">Email</a>
+            <a href="https://www.linkedin.com/in/harsha-allakonda-8134813b4" target="_blank" rel="noreferrer" className="hover:text-[#E5B83B] transition-colors">LinkedIn</a>
           </div>
         </div>
       </footer>
 
       {/* Story Video Preview Modal */}
       {isVideoModalOpen && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/80 backdrop-blur-md animate-fadeIn">
-          <div className="relative w-full max-w-4xl bg-slate-900 rounded-3xl overflow-hidden shadow-2xl border border-white/20">
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/85 backdrop-blur-md animate-fadeIn">
+          <div className="relative w-full max-w-4xl bg-gradient-to-br from-[#0B1849] to-[#14255C] rounded-3xl overflow-hidden shadow-2xl border-2 border-[#E5B83B]">
             <button 
               onClick={() => setIsVideoModalOpen(false)}
-              className="absolute top-4 right-4 z-10 w-10 h-10 rounded-full bg-black/60 text-white flex items-center justify-center hover:bg-black transition-all"
+              className="absolute top-4 right-4 z-10 w-10 h-10 rounded-full bg-black/60 text-[#E5B83B] border border-[#E5B83B]/50 flex items-center justify-center hover:bg-[#E5B83B] hover:text-[#0B1849] transition-all"
               aria-label="Close video"
             >
               ✕
@@ -790,14 +871,14 @@ export default function App() {
                 <source src="/HR_professionals_shaking_hands_1cd5d1a3_1080p.mp4" type="video/mp4" />
               </video>
             </div>
-            <div className="p-6 bg-slate-900 flex items-center justify-between text-white border-t border-white/10">
+            <div className="p-6 bg-[#0B1849] flex items-center justify-between text-white border-t-2 border-[#E5B83B]/40">
               <div>
-                <h3 className="font-bold text-lg">Executive Story • HR Leadership in Action</h3>
-                <p className="text-xs text-slate-400">Harsha Allakonda • Human Resources Manager at PREPDHA</p>
+                <h3 className="font-bold text-lg text-white">Executive Story • HR Leadership in Action</h3>
+                <p className="text-xs text-[#E5B83B]">Harsha Allakonda • Human Resources Manager at PREPDHA</p>
               </div>
               <button 
                 onClick={() => setIsVideoModalOpen(false)}
-                className="px-4 py-2 rounded-xl bg-white/10 hover:bg-white/20 text-xs font-bold transition-colors"
+                className="px-4 py-2 rounded-xl bg-[#E5B83B] text-[#0B1849] text-xs font-black hover:bg-[#c99f2d] transition-colors"
               >
                 Close Video
               </button>
