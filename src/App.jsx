@@ -533,7 +533,7 @@ export default function App() {
             onClick={() => navigateTo('overview')}
             className="flex items-center space-x-3 cursor-pointer group"
           >
-            <div className="h-10 w-12 sm:w-14 rounded-xl overflow-hidden bg-[#071329] border border-amber-400/40 shadow-md shadow-slate-900/10 group-hover:scale-105 transition-transform flex items-center justify-center shrink-0">
+            <div className="h-10 w-20 rounded-xl overflow-hidden bg-[#0a1428] border border-amber-400/40 shadow-md shadow-slate-900/10 group-hover:scale-105 transition-transform flex items-center justify-center shrink-0">
               <img 
                 src="/harsha_logo.jpg" 
                 alt="Harsha Logo" 
@@ -1755,7 +1755,7 @@ export default function App() {
       <footer className="relative z-10 bg-white/75 backdrop-blur-2xl border-t border-white/60 py-10 mt-16 text-slate-600">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs">
           <div className="flex items-center space-x-3">
-            <div className="h-8 w-10 sm:w-12 rounded-lg overflow-hidden bg-[#071329] border border-amber-400/30 shadow-sm shrink-0 flex items-center justify-center">
+            <div className="h-8 w-16 rounded-lg overflow-hidden bg-[#0a1428] border border-amber-400/30 shadow-sm shrink-0 flex items-center justify-center">
               <img 
                 src="/harsha_logo.jpg" 
                 alt="Harsha Logo" 
