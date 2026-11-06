@@ -116,61 +116,61 @@ export default function App() {
     {
       id: 1,
       num: "01",
-      title: "Talent Acquisition & Executive Sourcing",
-      tagline: "30+ hires/mo • 150+ interviews",
+      title: "Talent Acquisition & Sourcing",
+      tagline: "Recruitment Pipeline & Workflow Strategy",
       metric: "30+ Recruits / Mo",
-      desc: "End-to-end recruitment pipelines, LinkedIn talent sourcing, 92% candidate satisfaction and 88% offer acceptance rate.",
-      bgImage: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=600&q=80",
+      desc: "Candidate sourcing funnel, active talent search, LinkedIn recruitment pipelines, resume evaluations with 94% match accuracy, and 88% offer acceptance rate.",
+      bgImage: "/scenes/scene1_talent_acquisition.jpg",
       icon: Users
     },
     {
       id: 2,
       num: "02",
       title: "Smart Attendance & Biometrics",
-      tagline: "35% discrepancy reduction",
+      tagline: "Automated Shift & Discrepancy Control",
       metric: "35% Accuracy Boost",
-      desc: "Seamless synchronization of biometric hardware with Zoho People HRMS for automated shift management and attendance audit.",
-      bgImage: "https://images.unsplash.com/photo-1497215728101-856f4ea42174?auto=format&fit=crop&w=600&q=80",
+      desc: "Seamless synchronization of biometric hardware with Zoho People HRMS for automated shift management, automated clock-in audits, and error-free payroll inputs.",
+      bgImage: "/scenes/scene2_smart_attendance.jpg",
       icon: Clock
     },
     {
       id: 3,
       num: "03",
       title: "100% Compliant Payroll",
-      tagline: "Zoho Payroll • Statutory Filings",
+      tagline: "Seamless • Audit-Ready • Fully Automated",
       metric: "100% Compliance",
-      desc: "Timely monthly salary disbursements, precise TDS calculations, PF, ESI, professional tax, and zero-defect statutory filings.",
-      bgImage: "https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=600&q=80",
+      desc: "Guaranteed accuracy with salary slip breakdowns, statutory tax compliance (PF, ESI, PT, TDS), bank-grade financial integration, and audit history logs.",
+      bgImage: "/scenes/scene3_compliant_payroll.jpg",
       icon: DollarSign
     },
     {
       id: 4,
       num: "04",
       title: "Employee Relations & POSH",
-      tagline: "24-48h resolution • ICC Lead",
+      tagline: "Fostering a Safe & Respectful Workplace",
       metric: "95%+ Speedy SLA",
-      desc: "Certified POSH Train-the-Trainer, internal grievance mediation, disciplinary governance, and proactive employee surveys.",
-      bgImage: "https://images.unsplash.com/photo-1521737711867-e3b97375f902?auto=format&fit=crop&w=600&q=80",
+      desc: "Workplace harmony and inclusion, Internal Complaints Committee (ICC) governance, 100% confidential reporting, employee counseling, and 4-step fair grievance resolution.",
+      bgImage: "/scenes/scene4_employee_relations_posh.jpg",
       icon: ShieldCheck
     },
     {
       id: 5,
       num: "05",
       title: "AI in HR & Automation",
-      tagline: "SkillDeck & Claude/Gemini",
-      metric: "AI-Driven HRIS",
-      desc: "Leveraging modern AI tools to streamline job descriptions, policy synthesis, interview evaluation rubrics, and HR analytics.",
-      bgImage: "https://images.unsplash.com/photo-1488229297570-58520851e868?auto=format&fit=crop&w=600&q=80",
+      tagline: "Revolutionizing the Future of Work",
+      metric: "AI-Driven Workflows",
+      desc: "Autonomous AI HR assistants, intelligent workforce retention analytics, automated candidate screening funnels, neural network skill mapping, and HR workflow automation.",
+      bgImage: "/scenes/scene5_ai_in_hr.jpg",
       icon: Sparkles
     },
     {
       id: 6,
       num: "06",
       title: "Governance & Operations",
-      tagline: "Vendor & facility efficiency",
+      tagline: "Strategic Framework & Compliance",
       metric: "15% Cost Savings",
-      desc: "Standardized employee handbooks, vendor contract negotiations, asset tracking, and comprehensive facility oversight.",
-      bgImage: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=600&q=80",
+      desc: "Governance pillars (transparency, integrity, accountability, stewardship), policy execution framework, organizational structure mapping, SOP checklists, and regulatory compliance.",
+      bgImage: "/scenes/scene6_governance_operations.jpg",
       icon: Layers
     }
   ];
@@ -765,14 +765,14 @@ export default function App() {
                         onClick={() => setActiveScene(idx)}
                         className={`group relative rounded-2xl overflow-hidden cursor-pointer transition-all duration-300 ${isSelected
                             ? 'ring-4 ring-sky-500 shadow-xl shadow-sky-500/25 scale-[1.03]'
-                            : 'border border-slate-200/80 hover:border-sky-300 opacity-80 hover:opacity-100 hover:scale-[1.01]'
+                            : 'border border-slate-200/80 hover:border-sky-300 opacity-85 hover:opacity-100 hover:scale-[1.01]'
                           }`}
                       >
                         <div className="h-28 sm:h-32 w-full relative overflow-hidden bg-slate-900">
                           <img
                             src={scene.bgImage}
                             alt={scene.title}
-                            className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500 opacity-70"
+                            className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500 opacity-90"
                           />
                           <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/40 to-transparent"></div>
                           <div className="absolute top-2 left-2 bg-slate-900/80 backdrop-blur-sm text-white font-mono text-[10px] font-bold px-2 py-0.5 rounded">
@@ -787,21 +787,38 @@ export default function App() {
                   })}
                 </div>
 
-                {/* Active Scene Detail Banner */}
-                <div className="mt-6 bg-gradient-to-r from-slate-900 via-slate-800 to-slate-900 text-white rounded-2xl p-6 shadow-xl flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
-                  <div className="space-y-1 max-w-2xl">
+                {/* Active Scene Detail Banner with 2K Infographic Showcase */}
+                <div className="mt-6 bg-gradient-to-r from-slate-950 via-slate-900 to-slate-950 text-white rounded-3xl p-6 sm:p-8 shadow-2xl border border-white/10 flex flex-col lg:flex-row items-center justify-between gap-8 overflow-hidden">
+                  <div className="space-y-3 max-w-xl flex-1">
                     <div className="flex items-center gap-2">
-                      <span className="text-xs font-mono font-bold px-2 py-0.5 rounded bg-sky-500 text-white">
+                      <span className="text-xs font-mono font-bold px-2.5 py-1 rounded bg-sky-500 text-white shadow-sm">
                         SCENE {hrScenes[activeScene].num}
                       </span>
-                      <span className="text-xs text-sky-300 font-semibold">{hrScenes[activeScene].tagline}</span>
+                      <span className="text-xs text-sky-300 font-bold">{hrScenes[activeScene].tagline}</span>
                     </div>
-                    <h3 className="text-lg sm:text-xl font-bold text-white">{hrScenes[activeScene].title}</h3>
-                    <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">{hrScenes[activeScene].desc}</p>
+                    <h3 className="text-xl sm:text-2xl font-black text-white tracking-tight">{hrScenes[activeScene].title}</h3>
+                    <p className="text-xs sm:text-sm text-slate-300 leading-relaxed font-normal">{hrScenes[activeScene].desc}</p>
+                    
+                    <div className="pt-2 flex flex-wrap items-center gap-4">
+                      <div className="bg-white/10 backdrop-blur-md px-4 py-2 rounded-xl border border-white/10">
+                        <div className="text-[10px] text-sky-300 font-bold uppercase tracking-wider">Proven Metric</div>
+                        <div className="text-base font-black text-white">{hrScenes[activeScene].metric}</div>
+                      </div>
+                    </div>
                   </div>
-                  <div className="shrink-0 bg-white/10 backdrop-blur-md px-5 py-3 rounded-xl border border-white/20 text-center">
-                    <div className="text-xs text-sky-300 font-bold uppercase">Proven Metric</div>
-                    <div className="text-lg font-black text-white">{hrScenes[activeScene].metric}</div>
+
+                  {/* High-Res Infographic Preview of Active Scene */}
+                  <div className="w-full lg:w-96 rounded-2xl overflow-hidden border border-white/20 shadow-2xl bg-slate-900 shrink-0 aspect-[16/9] group relative">
+                    <img 
+                      src={hrScenes[activeScene].bgImage} 
+                      alt={hrScenes[activeScene].title}
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-transparent"></div>
+                    <div className="absolute bottom-2.5 left-3 right-3 flex items-center justify-between text-white text-[11px] font-bold">
+                      <span className="drop-shadow-md">Active 2K Infographic Scene</span>
+                      <span className="px-2 py-0.5 rounded bg-sky-500/80 text-[10px] font-mono">0{activeScene + 1} / 06</span>
+                    </div>
                   </div>
                 </div>
               </div>
